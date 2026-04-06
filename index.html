@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy &amp; Climate Adaptation Plan | CSU 2025&#x2013;2026</title>
+<style>
+/* ===== PROTECTION ===== */
+*,*::before,*::after{-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important;}
+img{-webkit-user-drag:none;pointer-events:none;}
+/* ===== RESET ===== */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background:#111;overflow:hidden;width:100vw;height:100vh;}
+/* ===== BRAND ===== */
+:root{
+  --navy:#1a2340;--navy-mid:#243060;--orange:#e8611a;--teal:#1a8080;
+  --purple:#7b3f9e;--red:#c0392b;--green-dk:#2e7d32;--green-lt:#e8f5e9;
+  --art-blue:#4a6aad;--white:#ffffff;--gray-lt:#f4f4f4;--text-dk:#1a1a2e;--text-md:#444;
+}
+/* ===== SLIDES ===== */
+#pres{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;display:none;overflow:hidden;background:white;}
+.slide.active{display:flex;}
+/* ===== NAV BAR ===== */
+#nav{position:fixed;top:14px;left:14px;z-index:800;display:flex;gap:8px;}
+.nb{padding:8px 18px;background:var(--navy);color:white;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;pointer-events:all;letter-spacing:.3px;}
+.nb:hover{background:var(--navy-mid);}
+.nb:disabled{background:#888;cursor:default;}
+#sc{position:fixed;bottom:10px;left:50%;transform:translateX(-50%);font-size:12px;color:#999;z-index:800;background:rgba(255,255,255,.82);padding:3px 12px;border-radius:10px;}
+/* ===== MENU ===== */
+#mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:2000;justify-content:center;align-items:center;}
+#mo.open{display:flex;}
+.mb{background:white;border-radius:14px;padding:30px;width:500px;max-height:80vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.5);}
+.mb h2{color:var(--navy);font-size:17px;font-weight:700;border-bottom:3px solid var(--orange);padding-bottom:10px;margin-bottom:14px;}
+#mlist{list-style:none;}
+#mlist li{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:6px;cursor:pointer;font-size:13px;color:var(--text-dk);pointer-events:all;}
+#mlist li:hover{background:#eef2ff;}
+.mn{background:var(--navy);color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.mc{margin-top:16px;width:100%;padding:9px;background:var(--navy);color:white;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;pointer-events:all;}
+.mc:hover{background:var(--navy-mid);}
+/* ===== DECO (right art) ===== */
+.deco{position:absolute;right:0;top:0;width:200px;height:100%;pointer-events:none;overflow:hidden;flex-shrink:0;}
+/* ===== SLIDE CONTENT WRAPPER ===== */
+.sc{flex:1;display:flex;flex-direction:column;position:relative;z-index:1;max-width:calc(100% - 200px);overflow:hidden;}
+/* ===== SECTION HEADER ===== */
+.sh{background:var(--navy);padding:15px 42px 13px;flex-shrink:0;}
+.sh h1{color:white;font-size:19px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;}
+.sh .sub{color:rgba(255,255,255,.72);font-style:italic;font-size:13px;margin-top:3px;}
+/* ===== CONTENT AREA ===== */
+.ca{flex:1;padding:18px 42px 14px;overflow-y:auto;overflow-x:hidden;}
+.ca::-webkit-scrollbar{width:5px;}
+.ca::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px;}
+/* ===== ROADMAP TABLES ===== */
+.ph{font-size:14px;font-weight:700;color:var(--text-dk);margin-bottom:10px;}
+.rt{width:100%;border-collapse:collapse;font-size:12.5px;}
+.rt th{background:var(--navy);color:white;padding:9px 13px;text-align:left;font-size:13px;font-weight:600;}
+.rt th:first-child{width:37%;}
+.rt td{padding:9px 13px;vertical-align:top;border:1px solid #ddd;line-height:1.55;}
+.rt tr:nth-child(odd) td{background:#f2f2f2;}
+.rt tr:nth-child(even) td{background:#e5e5e5;}
+.at{font-weight:700;display:block;margin-bottom:3px;}
+.pb{font-weight:700;}
+.added{color:#1a7060;font-style:italic;font-size:12px;display:block;margin-top:3px;}
+/* ===== TOOLTIPS ===== */
+.tp{position:relative;}
+.tpm{color:var(--art-blue);font-size:11px;text-decoration:underline;cursor:default;}
+.tpb{display:none;position:absolute;background:var(--navy);color:white;padding:10px 14px;border-radius:8px;font-size:11.5px;line-height:1.6;width:260px;z-index:500;top:100%;left:0;box-shadow:0 8px 24px rgba(0,0,0,.35);pointer-events:none;}
+.tp:hover .tpb{display:block;}
+/* ===== 4 PILLARS ===== */
+.pg{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;padding:14px 0;}
+.pc{border-radius:3px;overflow:hidden;display:flex;flex-direction:column;}
+.pc-h{padding:11px 10px;color:white;font-weight:700;text-align:center;font-size:12px;letter-spacing:.5px;text-transform:uppercase;}
+.pc-sub{font-size:11px;color:rgba(255,255,255,.78);margin-top:3px;font-weight:400;text-transform:none;}
+.pc-body{background:white;padding:10px;flex:1;}
+.pc-ml{font-size:11px;font-weight:700;margin-bottom:5px;}
+.pc-body ul{list-style:none;font-size:11.5px;line-height:1.55;}
+.pc-body li{display:flex;gap:4px;margin-bottom:4px;}
+.pc-body li::before{content:'▪';flex-shrink:0;}
+.pc-rel{margin-top:7px;background:var(--green-lt);border-radius:3px;padding:7px;}
+.pc-rl{font-size:11px;font-weight:700;color:var(--green-dk);margin-bottom:3px;}
+.pc-rel p{font-size:11px;line-height:1.4;}
+/* ===== VISUAL ROADMAP (3-phase) ===== */
+.vrm{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;flex:1;}
+.vph{border-radius:3px;overflow:hidden;display:flex;flex-direction:column;}
+.vph-h{padding:12px 13px;color:white;font-weight:700;font-size:13px;letter-spacing:.4px;}
+.vph-b{background:#f6f6f6;padding:13px;flex:1;font-size:12.5px;}
+.vck{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px;line-height:1.4;}
+.vck::before{content:'✓';color:var(--teal);font-weight:700;flex-shrink:0;}
+.vck.added{color:var(--green-dk);font-style:italic;}
+.vck.added::before{color:var(--green-dk);}
+/* timeline */
+.tl{display:flex;align-items:flex-end;padding:8px 42px 0;gap:0;flex-shrink:0;}
+.tli{display:flex;flex-direction:column;align-items:center;}
+.tld{width:12px;height:12px;border-radius:50%;}
+.tll{font-size:10px;color:#777;margin-top:3px;}
+.tln{flex:1;height:2px;background:#ccc;margin-bottom:5px;}
+/* ===== STRUCTURE ===== */
+.sl{list-style:none;padding:0;margin:8px 0;counter-reset:sli;}
+.sl li{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-bottom:1px solid #eee;font-size:15px;color:var(--text-dk);counter-increment:sli;}
+.sl li::before{content:counter(sli)'.';color:var(--art-blue);font-weight:700;font-size:15px;width:24px;flex-shrink:0;}
+/* ===== LEVERS ===== */
+.lvw{display:grid;grid-template-columns:175px 190px 195px 1fr 1fr;gap:12px;flex:1;overflow-y:auto;padding:10px 0;}
+.lvw::-webkit-scrollbar{width:5px;}
+.lvw::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px;}
+.lvct{font-size:13px;font-weight:700;color:var(--text-dk);margin-bottom:7px;}
+.lvsc{font-size:11px;font-weight:700;color:var(--text-dk);margin:5px 0 2px;}
+.lv{font-size:11px;color:#555;padding:2px 0;line-height:1.4;transition:all .5s ease;}
+.lv.csu{color:var(--navy);font-weight:700;background:rgba(74,106,173,.12);padding:2px 5px;border-radius:3px;border-left:3px solid var(--art-blue);margin-bottom:2px;}
+.lv.dim{color:#ccc;}
+.lvc{text-align:center;padding:8px 0;flex-shrink:0;}
+.lvb{padding:9px 22px;background:var(--navy);color:white;border:none;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;pointer-events:all;}
+.lvb:hover{background:var(--navy-mid);}
+.lvleg{font-size:11px;color:var(--text-md);margin-top:5px;display:none;}
+/* ===== CAMPUS ===== */
+.cw{display:flex;flex-direction:column;flex:1;padding:26px 42px;gap:14px;}
+.ci{width:760px;max-width:100%;height:370px;background:linear-gradient(135deg,#dce8f0,#c8daea);border:2px dashed var(--art-blue);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:4px;color:var(--art-blue);font-size:13px;font-weight:600;flex-shrink:0;position:relative;overflow:hidden;}
+.ci .cil{font-size:12px;opacity:.75;margin-top:5px;}
+.ci img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.cinfo h3{font-size:19px;color:var(--navy);margin-bottom:5px;}
+.cinfo p{font-size:13.5px;color:var(--text-md);line-height:1.6;}
+.cbadge{display:inline-block;background:var(--navy);color:white;font-size:11px;padding:3px 11px;border-radius:11px;margin-top:7px;margin-right:5px;}
+/* ===== WHAT I BRING ===== */
+.brl{list-style:none;padding:0;margin:8px 0;}
+.brl li{display:flex;align-items:flex-start;gap:13px;padding:12px 15px;background:#f8f9ff;border-radius:8px;margin-bottom:9px;font-size:14px;line-height:1.55;border-left:4px solid var(--art-blue);}
+.brl li::before{content:'▸';color:var(--orange);font-size:17px;flex-shrink:0;margin-top:1px;}
+/* ===== CSU WEBSITE MOCK ===== */
+.csm{border:1px solid #ddd;border-radius:5px;overflow:hidden;width:660px;box-shadow:0 5px 22px rgba(0,0,0,.15);}
+.cmtb{background:#111;padding:5px 13px;display:flex;gap:14px;font-size:10px;color:#bbb;}
+.cmnav{background:white;padding:9px 13px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee;}
+.cmlo{font-size:13px;font-weight:700;color:var(--red);display:flex;flex-direction:column;line-height:1.1;}
+.cmlo span{font-size:10px;font-weight:400;color:#555;}
+.cmsub{background:#f2f2f2;border-bottom:1px solid #ddd;}
+.cmtag{display:inline-block;background:#e8e8e8;border:1px solid #ccc;font-size:11px;padding:3px 11px;margin:5px 8px;border-radius:3px;}
+.cmlinks{padding:0 10px 5px;display:flex;gap:13px;font-size:10.5px;color:#444;}
+.cmhero{background:#2d6a4f;padding:19px 21px;}
+.cmhero h2{font-size:18px;font-weight:700;color:#a8e6c0;margin-bottom:9px;line-height:1.3;}
+.cmhero p{font-size:12px;color:rgba(255,255,255,.9);line-height:1.5;max-width:480px;}
+.cmdl{display:inline-block;margin-top:11px;padding:8px 17px;background:var(--navy);color:white;border:none;border-radius:4px;font-size:12px;font-weight:600;cursor:pointer;pointer-events:all;}
+.cmdl:hover{background:var(--navy-mid);}
+/* ===== FOOTER ===== */
+.sf{position:absolute;bottom:7px;left:42px;right:210px;display:flex;justify-content:space-between;font-size:10px;color:#bbb;pointer-events:none;}
+/* ===== PROTECTION OVERLAY ===== */
+#po{position:fixed;inset:0;z-index:9990;pointer-events:none;background:repeating-linear-gradient(-55deg,transparent 0,transparent 150px,rgba(180,180,255,.012) 150px,rgba(180,180,255,.012) 151px);}
+/* ===== TITLE SLIDE ===== */
+#s1{flex-direction:row;}
+.s1l{background:var(--navy);width:108px;flex-shrink:0;}
+.s1c{flex:1;display:flex;flex-direction:column;justify-content:center;padding:46px 54px;}
+.s1ey{font-size:15px;color:var(--navy);margin-bottom:13px;}
+.s1t{font-size:48px;font-weight:300;color:var(--navy);line-height:1.15;}
+/* ===== SVG DECO (inline helper) ===== */
+.svgd{width:200px;height:100%;}
+</style>
+</head>
+<body>
+<div id="po"></div>
+<div id="nav">
+  <button class="nb" id="bnm" onclick="openMenu()">Menu</button>
+  <button class="nb" id="bnb" onclick="go(-1)" disabled>Back</button>
+  <button class="nb" id="bnn" onclick="go(1)">Next ›</button>
+</div>
+<div id="sc"></div>
+<div id="mo">
+  <div class="mb">
+    <h2>Navigate to Section</h2>
+    <ul id="mlist"></ul>
+    <button class="mc" onclick="closeMenu()">&#x2715; Close</button>
+  </div>
+</div>
+<div id="pres">
+
+<!-- ===== S1: LANDING ===== -->
+<div class="slide active" id="s1" data-title="Title: Energy &amp; Climate Adaptation Plan">
+  <div class="s1l"></div>
+  <div class="s1c">
+    <div class="s1ey">Charles Sturt University | 2025&#x2013;2026</div>
+    <div class="s1t">Energy and Climate<br>Adaptation Plan</div>
+  </div>
+  <div class="deco">
+    <svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="110" r="91" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="110" r="104" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/>
+      <rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/>
+      <rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/>
+      <circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="400" r="72" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="100" cy="400" r="88" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="140" cy="690" r="48" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="140" cy="690" r="64" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+      <circle cx="140" cy="690" r="80" fill="none" stroke="#4a6aad" stroke-width="2.5"/>
+    </svg>
+  </div>
+  <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F.</span></div>
+</div>
+
+<!-- ===== S2: STRUCTURE ===== -->
+<div class="slide" id="s2" data-title="Presentation Structure">
+  <div class="sc">
+    <div style="padding:28px 42px 0;"><h2 style="font-size:24px;color:var(--navy);">Structure</h2></div>
+    <div class="ca" style="padding-top:8px;">
+      <ol class="sl">
+        <li>April 16 2027 &#x2013; The day of report publish.</li>
+        <li>Walkthrough of the CSU Climate Outlook 2026.</li>
+        <li>Backtrack the progress and initiatives.</li>
+        <li>NSW 4 Pillars integration.</li>
+        <li>Materiality assessment, Data collection, Automation.</li>
+        <li>Processes in place to make it happen.</li>
+        <li>Innovation, Tracking, Tools.</li>
+        <li>Strategy &amp; Governance.</li>
+        <li>Student Activities.</li>
+        <li>Internal and external stakeholder information management.</li>
+        <li>What do I bring to the table.</li>
+      </ol>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 2</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="400" r="72" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="48" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="64" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== S3: GOAL 2027 ===== -->
+<div class="slide" id="s3" data-title="Goal: 2027 April 16 &#x2013; Report Published" style="background:#0d1b2e;flex-direction:column;">
+  <div class="sc" style="max-width:100%;background:#0d1b2e;">
+    <div style="padding:22px 46px 13px;"><h1 style="font-size:38px;font-weight:400;color:white;">Date: 2027 April 16</h1></div>
+    <div style="padding:0 46px;">
+      <div class="csm">
+        <div class="cmtb"><span>Future Students</span><span>Current Students</span><span>International</span><span>Staff</span><span>Researchers</span><span>Community</span><span>Alumni</span><span>Giving</span><span>Student Portal</span><span>Quicklinks &#x2228;</span></div>
+        <div class="cmnav">
+          <div class="cmlo">Charles Sturt<span>University</span></div>
+          <span style="font-size:17px;color:#888;">&#128269;</span>
+        </div>
+        <div class="cmsub">
+          <div style="padding:4px 8px;"><span class="cmtag">Sustainability</span></div>
+          <div class="cmlinks"><span>Home</span><span>Locations &#x2228;</span><span>What you can do</span><span>LiFE Framework &#x2228;</span><span>Sustainable Development Goals &#x2228;</span><span>About us &#x2228;</span><span>Grants &#x2228;</span><span>Events</span><span>Contact us</span></div>
+        </div>
+        <div class="cmhero">
+          <h2>Charles Sturt University unveils first NSW TPG-aligned Climate Outlook for 2026</h2>
+          <p>Aligned with the NSW Treasury climate disclosure framework, this marks the University&#x2019;s first formal climate-related financial disclosure. It sets a baseline for transparent reporting and future transition planning.</p>
+          <button class="cmdl" onclick="mockDownload()">Download</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="deco" style="background:#0d1b2e;"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="100" cy="110" r="91" fill="none" stroke="#6888c5" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#6888c5" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#6888c5" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#6888c5" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="100" cy="400" r="72" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#6888c5" stroke-width="2.5"/><circle cx="140" cy="690" r="48" fill="none" stroke="#6888c5" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== S4: NSW 4 PILLARS ===== -->
+<div class="slide" id="s4" data-title="NSW 4 Pillars: What TPG24-33 Requires">
+  <div class="sc">
+    <div class="sh"><h1>What TPG24-33 Requires of CSU</h1><div class="sub">The four mandatory pillars &#x2014; and what each means for a Phase 2 entity</div></div>
+    <div class="ca">
+      <div class="pg">
+        <div class="pc">
+          <div class="pc-h" style="background:#2e5020;">&#x1F465;<br>Governance<div class="pc-sub">Pillar 1</div></div>
+          <div class="pc-body">
+            <div class="pc-ml" style="color:#2e5020;">MANDATORY:</div>
+            <ul><li>Who oversees climate risk</li><li>How often they&#x2019;re informed</li><li>How it links to strategy</li></ul>
+            <div class="pc-rel"><div class="pc-rl">YEAR 1 RELIEF:</div><p>Qualitative description accepted Year 1</p></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-h" style="background:var(--teal);">&#x1F4C8;<br>Strategy<div class="pc-sub">Pillar 2</div></div>
+          <div class="pc-body">
+            <div class="pc-ml" style="color:var(--teal);">MANDATORY:</div>
+            <ul><li>Physical &amp; transition risks (S1&#x2013;S6)</li><li>Business model effects</li><li>Financial position impacts (qualitative)</li></ul>
+            <div class="pc-rel"><div class="pc-rl">YEAR 1 RELIEF:</div><p>Scenario analysis NOT required Year 1</p></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-h" style="background:var(--purple);">&#x1F5C4;<br>Risk Management<div class="pc-sub">Pillar 3</div></div>
+          <div class="pc-body">
+            <div class="pc-ml" style="color:var(--purple);">MANDATORY:</div>
+            <ul><li>How risks are identified &amp; assessed</li><li>How risks are prioritised</li><li>Integration with enterprise risk</li></ul>
+            <div class="pc-rel"><div class="pc-rl">YEAR 1 RELIEF:</div><p>Simplified register approach acceptable</p></div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="pc-h" style="background:var(--red);">&#x1F3AF;<br>Metrics &amp; Targets<div class="pc-sub">Pillar 4</div></div>
+          <div class="pc-body">
+            <div class="pc-ml" style="color:var(--red);">MANDATORY:</div>
+            <ul><li>Scope 1 &amp; 2 GHG emissions (mandatory)</li><li>Emission methodology disclosed</li><li>Progress against climate targets</li></ul>
+            <div class="pc-rel"><div class="pc-rl">YEAR 1 RELIEF:</div><p>Scope 3 EXCLUDED in Year 1</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 4</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="400" r="72" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="48" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="64" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== S5: VISUAL ROADMAP ===== -->
+<div class="slide" id="s5" data-title="12-Month Roadmap Overview">
+  <div class="sc">
+    <div class="sh" style="background:#1b5e20;"><h1>12-Month Roadmap to Publication</h1><div class="sub">From Day 1 to published disclosure &#x2014; practical, TPG24-33 aligned, project-managed</div></div>
+    <div class="ca">
+      <div class="vrm">
+        <div class="vph" style="border:1px solid #2e5020;">
+          <div class="vph-h" style="background:#2e5020;">Phase 1<br><span style="font-size:11px;font-weight:400;">JUL&#x2013;SEP 2025</span></div>
+          <div class="vph-b">
+            <div class="vck added">Stakeholder mapping &amp; engagement register</div>
+            <div class="vck added">Materiality assessment framework initiated</div>
+            <div class="vck">Register: Climate Risk Ready Hub, XDI NSW</div>
+            <div class="vck">Audit existing data (utility bills, fleet, solar)</div>
+            <div class="vck">Draft Governance section from existing committees</div>
+            <div class="vck">Begin TPG24-33 gap checklist</div>
+          </div>
+        </div>
+        <div class="vph" style="border:1px solid var(--teal);">
+          <div class="vph-h" style="background:var(--teal);">Phase 2<br><span style="font-size:11px;font-weight:400;">OCT&#x2013;DEC 2025</span></div>
+          <div class="vph-b">
+            <div class="vck">NARCliM 2.0 campus risk profiles</div>
+            <div class="vck">Materiality assessment workshop</div>
+            <div class="vck added">SteerCo meeting series commenced</div>
+            <div class="vck added">Pilot week: data pipeline &amp; BMS testing</div>
+            <div class="vck added">Change management: staff briefings &amp; comms plan</div>
+            <div class="vck">Scope 1 data finalised</div>
+          </div>
+        </div>
+        <div class="vph" style="border:1px solid var(--purple);">
+          <div class="vph-h" style="background:var(--purple);">Phase 3<br><span style="font-size:11px;font-weight:400;">JAN&#x2013;APR 2027</span></div>
+          <div class="vph-b">
+            <div class="vck">Scope 2 LGC records confirmed</div>
+            <div class="vck">Scope 3 preliminary screening</div>
+            <div class="vck">Draft Metrics &amp; Targets section</div>
+            <div class="vck">Complete full report draft</div>
+            <div class="vck">Executive review + Council endorsement</div>
+            <div class="vck">Publication</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tl">
+      <div class="tli"><div class="tld" style="background:#2e5020;"></div><div class="tll">Jul</div></div><div class="tln"></div>
+      <div class="tli"><div class="tld" style="background:#2e5020;"></div><div class="tll">Sep</div></div><div class="tln"></div>
+      <div class="tli"><div class="tld" style="background:var(--teal);"></div><div class="tll">Oct</div></div><div class="tln"></div>
+      <div class="tli"><div class="tld" style="background:var(--teal);"></div><div class="tll">Dec</div></div><div class="tln"></div>
+      <div class="tli"><div class="tld" style="background:var(--purple);"></div><div class="tll">Jan&#x2019;26</div></div><div class="tln"></div>
+      <div class="tli"><div class="tld" style="background:var(--purple);"></div><div class="tll">Apr&#x2019;27</div></div>
+    </div>
+    <div style="padding:4px 42px 6px;font-size:11px;color:#888;font-style:italic;">&#x2714; Italic green items added to fill identified gaps per roadmap detail tables.</div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 11</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="400" r="72" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="48" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== DECO SNIPPET (reused) ===== -->
+<!-- SVG deco macro (inline per slide for independence) -->
+
+<!-- ===== S6: MONTHS 10-12 ===== -->
+<div class="slide" id="s6" data-title="Roadmap: Months 10&#x2013;12 (Feb&#x2013;Apr 2027)">
+  <div class="sc">
+    <div class="sh"><h1>12-Month Roadmap</h1></div>
+    <div class="ca">
+      <div class="ph">Months 10&#x2013;12: Review, assurance, and submission (February&#x2013;April 2027)</div>
+      <table class="rt">
+        <tr><th>Activities</th><th>Processes / Tools in place</th></tr>
+        <tr>
+          <td><span class="at">Internal review cycle</span>Circulate draft disclosure through the working group, Finance, Risk, and the Executive Leadership Team.</td>
+          <td><span class="pb">Stakeholder information trigger protocol</span><br>Continuous drafting &nbsp;&#xB7;&nbsp; Stakeholder Tracker &nbsp;&#xB7;&nbsp; Department protocol on new building &nbsp;&#xB7;&nbsp; Project-retrospective &nbsp;&#xB7;&nbsp; <span class="pb">NSW 4 Pillars integration review</span></td>
+        </tr>
+        <tr>
+          <td><span class="at">Limited assurance</span>While not mandatory in Year 1, obtaining independent limited assurance (as the University of Sydney did with BDO) builds credibility and prepares CSU for likely future requirements.</td>
+          <td><span class="pb">Limited assurance:</span> Early discussions and having beneficial agreements.<br>Online workshop on FAQs.</td>
+        </tr>
+        <tr>
+          <td><span class="at">Website developing team</span>Drafting the wording on the article, wording the achievements in SEO-friendly way.</td>
+          <td><span class="pb">Social media execution plan</span><br><span class="pb">LinkedIn awareness</span><br><span class="pb">SEO plan</span></td>
+        </tr>
+      </table>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 5</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="400" r="72" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="48" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== S7: MONTHS 7-9 ===== -->
+<div class="slide" id="s7" data-title="Roadmap: Months 7&#x2013;9 (Jan&#x2013;Mar 2026)">
+  <div class="sc">
+    <div class="sh"><h1>12-Month Roadmap</h1></div>
+    <div class="ca">
+      <div class="ph">Months 7&#x2013;9: Finalizing the disclosure (January&#x2013;March 2026)</div>
+      <table class="rt">
+        <tr><th>Activities</th><th>Processes / Tools in place</th></tr>
+        <tr>
+          <td><span class="at">Draft disclosure sections</span>Conclude the four pillar narrative &#x2014; Governance, Strategy, Risk Management, Metrics and Targets.</td>
+          <td>Continuous drafting &nbsp;&#xB7;&nbsp; Stakeholder Tracker &nbsp;&#xB7;&nbsp; Department protocol on new building</td>
+        </tr>
+        <tr>
+          <td><span class="at">Connect energy projects to disclosure</span>LED upgrades, HVAC optimization, solar PV expansion, and building electrification projects are not separate from the disclosure.</td>
+          <td class="tp">Drafting of energy charts &nbsp;&#xB7;&nbsp; Intensity calculations &nbsp;&#xB7;&nbsp; Data consolidation &nbsp;&#xB7;&nbsp; Analytics support &nbsp;&#xB7;&nbsp; Scope 1 &amp; 2 data detailing
+            <span class="tpm"> + more &#x25BE;</span>
+            <div class="tpb">Asset-level exposure mapping &nbsp;&#xB7;&nbsp; Energy performance benchmarking &nbsp;&#xB7;&nbsp; Narrative linkage to financial position statements &nbsp;&#xB7;&nbsp; Verification of intensity metrics against asset register</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="at">Student activities</span></td>
+          <td>Drafting student activities &nbsp;&#xB7;&nbsp; Appointing leaders &nbsp;&#xB7;&nbsp; Follow-up meetings &nbsp;&#xB7;&nbsp; Continuous drafting</td>
+        </tr>
+        <tr>
+          <td><span class="at">People section article</span></td>
+          <td>Drafting &#x201C;People&#x201D; activities</td>
+        </tr>
+      </table>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 6</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="400" r="72" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== S8: MONTHS 4-6 ===== -->
+<div class="slide" id="s8" data-title="Roadmap: Months 4&#x2013;6 (Oct&#x2013;Dec 2025)">
+  <div class="sc">
+    <div class="sh"><h1>12-Month Roadmap</h1></div>
+    <div class="ca">
+      <div class="ph">Months 4&#x2013;6: Project Execution (October&#x2013;December 2025)</div>
+      <table class="rt">
+        <tr><th>Activities</th><th>Processes / Tools in place</th></tr>
+        <tr>
+          <td><span class="at">Project Execution &#x2013; Phase 1</span></td>
+          <td><span class="pb">Stakeholder information trigger protocol</span><br>Continuous drafting &nbsp;&#xB7;&nbsp; Stakeholder Tracker &nbsp;&#xB7;&nbsp; Department protocol on new building</td>
+        </tr>
+        <tr>
+          <td><span class="at">SteerCo meeting series</span></td>
+          <td><span class="pb">Limited assurance:</span> Early discussions and having beneficial agreements.</td>
+        </tr>
+        <tr>
+          <td><span class="at">Pilot week</span><span class="added">Live test of data collection pipeline across two pilot campuses.</span></td>
+          <td class="added">Two-campus data pipeline test (Dubbo + Wagga Wagga) &nbsp;&#xB7;&nbsp; BMS integration validation &nbsp;&#xB7;&nbsp; Scope 1 metering accuracy check &nbsp;&#xB7;&nbsp; Dashboard test run &nbsp;&#xB7;&nbsp; Issue log &amp; corrective action register</td>
+        </tr>
+        <tr>
+          <td><span class="at">Change management</span><span class="added">Internal comms and staff readiness for disclosure activities.</span></td>
+          <td class="added">Internal comms plan (email, intranet) &nbsp;&#xB7;&nbsp; Department head briefings &nbsp;&#xB7;&nbsp; Staff climate literacy sessions &nbsp;&#xB7;&nbsp; Change readiness survey &nbsp;&#xB7;&nbsp; FAQ document for staff queries</td>
+        </tr>
+      </table>
+      <p style="font-size:11px;color:#888;margin-top:6px;font-style:italic;">&#x2714; Italic green rows: content added to fill identified gaps.</p>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 7</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== S9: MONTHS 1-3 DATA ===== -->
+<div class="slide" id="s9" data-title="Roadmap: Months 1&#x2013;3 &#x2013; Data Collection &amp; Gap Analysis">
+  <div class="sc">
+    <div class="sh"><h1>12-Month Roadmap</h1></div>
+    <div class="ca">
+      <div class="ph">Months 1&#x2013;3: Data collection &amp; gap analysis (July&#x2013;September 2025)</div>
+      <table class="rt">
+        <tr><th>Activities</th><th>Processes / Tools in place</th></tr>
+        <tr>
+          <td><span class="at">Stakeholder mapping</span></td>
+          <td><span class="pb">Stakeholder information trigger protocol</span><br>Continuous drafting &nbsp;&#xB7;&nbsp; Stakeholder Tracker &nbsp;&#xB7;&nbsp; Department protocol on new building</td>
+        </tr>
+        <tr>
+          <td><span class="at">Materiality assessment</span>Determine which climate risks genuinely affect CSU&#x2019;s financial position.</td>
+          <td><span class="pb">Limited assurance:</span> Early discussions and having beneficial agreements<br>Climate Risk Maturity Health Check Tool</td>
+        </tr>
+        <tr>
+          <td><span class="at">Data collection</span>Finalise Scope 1 and 2 emissions data for the 2025&#x2013;26 reporting period. Ensure natural gas consumption data is complete across all campuses.</td>
+          <td class="tp">Energy monitoring automation &nbsp;&#xB7;&nbsp; BMS streamlining &nbsp;&#xB7;&nbsp; Putting trackers in place &nbsp;&#xB7;&nbsp; Dashboard setup &nbsp;&#xB7;&nbsp; Voluntary student programs &nbsp;&#xB7;&nbsp; Gap analysis
+            <span class="tpm"> + more &#x25BE;</span>
+            <div class="tpb">Data fragmented &#x2192; inconsistent metering identified &nbsp;&#xB7;&nbsp; Scope 1 vs Scope 2 boundaries unclear at asset level &nbsp;&#xB7;&nbsp; Asset-level exposure mapping &nbsp;&#xB7;&nbsp; User behaviour analysis &nbsp;&#xB7;&nbsp; Hourly load profile &nbsp;&#xB7;&nbsp; Peak demand drivers &nbsp;&#xB7;&nbsp; Existing contract exposure &nbsp;&#xB7;&nbsp; Network limits and tariffs &nbsp;&#xB7;&nbsp; Shape demand to increase solar value &nbsp;&#xB7;&nbsp; Add batteries only where financially justified &nbsp;&#xB7;&nbsp; PPA to cover residual demand<br><br><strong>Energy Mix Target (hover note):</strong><br>30&#x2013;40% on-site solar &nbsp;&#xB7;&nbsp; 40&#x2013;50% firmed PPA (wind-led) &nbsp;&#xB7;&nbsp; 10&#x2013;20% market exposure</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 8</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== S10: MONTHS 1-3 PLANNING ===== -->
+<div class="slide" id="s10" data-title="Roadmap: Months 1&#x2013;3 &#x2013; Project Planning">
+  <div class="sc">
+    <div class="sh"><h1>12-Month Roadmap</h1></div>
+    <div class="ca">
+      <div class="ph">Months 1&#x2013;3: Data collection &amp; gap analysis &#x2013; continued (July&#x2013;September 2025)</div>
+      <table class="rt">
+        <tr><th>Activities</th><th>Processes / Tools in place</th></tr>
+        <tr>
+          <td><span class="at">Project planning: Reduction Lever</span></td>
+          <td class="tp">Budgeting &nbsp;&#xB7;&nbsp; Conflict management &nbsp;&#xB7;&nbsp; Baseline definition &nbsp;&#xB7;&nbsp; Effort estimating &nbsp;&#xB7;&nbsp; Forecasting &nbsp;&#xB7;&nbsp; Supplier discussions &nbsp;&#xB7;&nbsp; Project kickoff &nbsp;&#xB7;&nbsp; Tracker creation &nbsp;&#xB7;&nbsp; CAPA protocol placement &nbsp;&#xB7;&nbsp; Ground assessment &nbsp;&#xB7;&nbsp; Project mapping &nbsp;&#xB7;&nbsp; Version gap analysis &nbsp;&#xB7;&nbsp; EOL and EOM support &nbsp;&#xB7;&nbsp; Procurement &nbsp;&#xB7;&nbsp; Load segmentation &amp; profiling
+            <span class="tpm"> + constraints &#x25BE;</span>
+            <div class="tpb"><strong>Technical &amp; org constraints:</strong><br>Grid and infrastructure constraints &nbsp;&#xB7;&nbsp; Demand management &nbsp;&#xB7;&nbsp; Safety compliance &nbsp;&#xB7;&nbsp; Failsafe protocols &nbsp;&#xB7;&nbsp; Budget cycles and project timelines &nbsp;&#xB7;&nbsp; Change management &nbsp;&#xB7;&nbsp; Disconnect between finance, risk, and engineering</div>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="at">Loans capital grain strategy</span></td>
+          <td>SOP &nbsp;&#xB7;&nbsp; Bidding documents &nbsp;&#xB7;&nbsp; Network tariff change &nbsp;&#xB7;&nbsp; Lifecycle costs</td>
+        </tr>
+        <tr>
+          <td><span class="at">Target &amp; Metrics setting</span></td>
+          <td>Committing to NSW 30% &amp; 70% emission reduction targets &nbsp;&#xB7;&nbsp; Feasibility assessment</td>
+        </tr>
+      </table>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 9</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== S11: REDUCTION LEVERS ===== -->
+<div class="slide" id="s11" data-title="Reduction Levers: CSU-Applicable Actions">
+  <div class="sc">
+    <div class="sh"><h1>Reduction Levers</h1><div class="sub">All known levers &#x2014; then highlighting CSU-applicable actions</div></div>
+    <div class="lvc">
+      <button class="lvb" id="lvbtn" onclick="leverStep()">Highlight CSU-Applicable Actions &#x203A;</button>
+      <div class="lvleg" id="lvleg">&#x25A0; = CSU-applicable &nbsp;|&nbsp; Dimmed = not primary focus for a university campus context</div>
+    </div>
+    <div class="lvw" id="lvw">
+      <!-- Col 1: Energy Efficiency -->
+      <div>
+        <div class="lvct">Energy Efficiency</div>
+        <div class="lvsc">In buildings</div>
+        <div class="lv" id="lv01">Insulation</div>
+        <div class="lv" id="lv02">Maintenance program</div>
+        <div class="lv" id="lv03">Draught proofing</div>
+        <div class="lv" id="lv04">Solar shading</div>
+        <div class="lv" id="lv05">Building Energy Management Systems (BEMS)</div>
+        <div class="lv" id="lv06">Heating, Ventilation and Air Conditioning (HVAC)</div>
+        <div class="lv" id="lv07">Lighting</div>
+        <div class="lv" id="lv08">Motors and drives</div>
+        <div class="lv" id="lv09">Combined heat and power (cogeneration)</div>
+        <div class="lv" id="lv10">Other</div>
+        <div class="lvsc">In production processes</div>
+        <div class="lv" id="lv11">Waste heat recovery</div>
+        <div class="lv" id="lv12">Cooling technology</div>
+        <div class="lv" id="lv13">Process optimization</div>
+        <div class="lv" id="lv14">Fuel switch</div>
+        <div class="lv" id="lv15">Compressed air</div>
+        <div class="lv" id="lv16">Combined heat and power</div>
+        <div class="lv" id="lv17">Wastewater treatment</div>
+        <div class="lv" id="lv18">Reuse of water</div>
+        <div class="lv" id="lv19">Reuse of steam</div>
+        <div class="lv" id="lv20">Machine/equipment replacement</div>
+        <div class="lv" id="lv21">Automation</div>
+        <div class="lv" id="lv22">Electrification</div>
+        <div class="lv" id="lv23">Smart control system</div>
+        <div class="lv" id="lv24">Motors and drives</div>
+        <div class="lv" id="lv25">Product or service design</div>
+        <div class="lv" id="lv26">Other</div>
+        <div class="lvsc">Waste &amp; circularity</div>
+        <div class="lv" id="lv27">Waste reduction</div>
+        <div class="lv" id="lv28">Product/service design</div>
+        <div class="lv" id="lv29">Material reuse</div>
+        <div class="lv" id="lv30">Material recycling</div>
+        <div class="lv" id="lv31">Remanufacturing</div>
+        <div class="lv" id="lv32">Other</div>
+        <div class="lvsc">Fugitive emissions</div>
+        <div class="lv" id="lv33">Agricultural methane capture</div>
+        <div class="lv" id="lv34">Agricultural nitrous oxide reduction</div>
+        <div class="lv" id="lv35">Landfill methane capture</div>
+        <div class="lv" id="lv36">Oil/gas methane leak capture/prevention</div>
+        <div class="lv" id="lv37">Refrigerant leakage reduction</div>
+        <div class="lv" id="lv38">Carbon capture and storage/utilization</div>
+        <div class="lv" id="lv39">Other</div>
+      </div>
+      <!-- Col 2: Low-carbon energy consumption -->
+      <div>
+        <div class="lvct">Low-carbon Energy Consumption</div>
+        <div class="lv" id="lv40">Solid biofuels</div>
+        <div class="lv" id="lv41">Liquid biofuels</div>
+        <div class="lv" id="lv42">Biogas</div>
+        <div class="lv" id="lv43">Geothermal</div>
+        <div class="lv" id="lv44">Large hydropower (&gt;25 MW)</div>
+        <div class="lv" id="lv45">Small hydropower (&lt;25 MW)</div>
+        <div class="lv" id="lv46">Hydropower (capacity unknown)</div>
+        <div class="lv" id="lv47">Renewable hydrogen fuel cell</div>
+        <div class="lv" id="lv48">Solar heating and cooling</div>
+        <div class="lv" id="lv49">Solar PV</div>
+        <div class="lv" id="lv50">Solar CSP</div>
+        <div class="lv" id="lv51">Nuclear</div>
+        <div class="lv" id="lv52">Wind</div>
+        <div class="lv" id="lv53">Tidal</div>
+        <div class="lv" id="lv54">Wave</div>
+        <div class="lv" id="lv55">Fossil fuel plant fitted with CCS</div>
+        <div class="lv" id="lv56">Low-carbon electricity mix</div>
+        <div class="lv" id="lv57">Other</div>
+      </div>
+      <!-- Col 3: Low-carbon energy generation -->
+      <div>
+        <div class="lvct">Low-carbon Energy Generation</div>
+        <div class="lv" id="lv58">Solid biofuels</div>
+        <div class="lv" id="lv59">Liquid biofuels</div>
+        <div class="lv" id="lv60">Biogas</div>
+        <div class="lv" id="lv61">Geothermal</div>
+        <div class="lv" id="lv62">Large hydropower (&gt;25 MW)</div>
+        <div class="lv" id="lv63">Small hydropower (&lt;25 MW)</div>
+        <div class="lv" id="lv64">Hydropower (capacity unknown)</div>
+        <div class="lv" id="lv65">Renewable hydrogen fuel cell</div>
+        <div class="lv" id="lv66">Nuclear</div>
+        <div class="lv" id="lv67">Solar heating and cooling</div>
+        <div class="lv" id="lv68">Solar PV</div>
+        <div class="lv" id="lv69">Solar CSP</div>
+        <div class="lv" id="lv70">Wind</div>
+        <div class="lv" id="lv71">Tidal</div>
+        <div class="lv" id="lv72">Wave</div>
+        <div class="lv" id="lv73">Fossil fuel plant fitted with CCS</div>
+        <div class="lv" id="lv74">Other</div>
+      </div>
+      <!-- Col 4: Policy & Transport -->
+      <div>
+        <div class="lvct">Company Policy / Behavioural</div>
+        <div class="lv" id="lv75">Supplier engagement</div>
+        <div class="lv" id="lv76">Customer engagement</div>
+        <div class="lv" id="lv77">Site consolidation/closure</div>
+        <div class="lv" id="lv78">Change in purchasing practices</div>
+        <div class="lv" id="lv79">Resource efficiency</div>
+        <div class="lv" id="lv80">Waste management</div>
+        <div class="lv" id="lv81">Other</div>
+        <div class="lvsc" style="margin-top:14px;">Transportation</div>
+        <div class="lv" id="lv82">Business travel policy</div>
+        <div class="lv" id="lv83">Teleworking</div>
+        <div class="lv" id="lv84">Employee commuting</div>
+        <div class="lv" id="lv85">Company fleet vehicle replacement</div>
+        <div class="lv" id="lv86">Company fleet vehicle efficiency</div>
+        <div class="lv" id="lv87">Other</div>
+      </div>
+      <!-- Col 5: Non-energy + CSU specifics -->
+      <div>
+        <div class="lvct">Non-energy Industrial Process</div>
+        <div class="lv" id="lv88">Process equipment replacement</div>
+        <div class="lv" id="lv89">Process material substitution</div>
+        <div class="lv" id="lv90">Process material efficiency</div>
+        <div class="lv" id="lv91">Carbon capture &amp; storage (CCS/U)</div>
+        <div class="lv" id="lv92">Other</div>
+        <div style="margin-top:18px;padding:11px;background:var(--green-lt);border-radius:6px;font-size:12px;color:var(--green-dk);">
+          <strong>CSU-specific additions:</strong><br>
+          &#x25AA; Sustainable procurement policy<br>
+          &#x25AA; Carbon-aware event planning<br>
+          &#x25AA; Staff green travel incentives<br>
+          &#x25AA; Campus waste segregation program<br>
+          &#x25AA; Green loan &amp; capital strategy
+        </div>
+      </div>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 10</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- ===== CAMPUS SLIDES S12-S17 ===== -->
+<!-- SVG deco shorthand -->
+
+<!-- S12: Dubbo -->
+<div class="slide" id="s12" data-title="Campus: Dubbo">
+  <div class="sc">
+    <div style="padding:26px 42px 0;"><h2 style="font-size:19px;color:var(--navy);">Campus Solar Potential Analysis</h2></div>
+    <div class="cw">
+      <div class="ci">
+        <!-- TO UPDATE: Replace this div content with <img src="data:image/jpeg;base64,YOUR_BASE64_HERE" alt="Dubbo Campus"> -->
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="3" y="3" width="46" height="46" rx="3" stroke="#4a6aad" stroke-width="2"/><circle cx="26" cy="20" r="9" stroke="#4a6aad" stroke-width="2"/><path d="M12 44 Q26 32 40 44" stroke="#4a6aad" stroke-width="2" fill="none"/></svg>
+        <div class="cil">[ Replace with Dubbo Campus aerial image (base64 data URI) ]</div>
+      </div>
+      <div class="cinfo">
+        <h3>Dubbo Campus</h3>
+        <p>&#x7E;5.1 peak sun hours/day &nbsp;&#xB7;&nbsp; &#x7E;6.1 kWh/m&#xB2;/day irradiance (high-yield zone)</p>
+        <p>8&#x2013;9 hours sunshine daily, low cloud variability</p>
+        <span class="cbadge">Zone 3 STC</span><span class="cbadge">High Solar Yield</span><span class="cbadge">PV Expansion Priority</span>
+      </div>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 12</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="48" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- S13: Wagga Wagga -->
+<div class="slide" id="s13" data-title="Campus: Wagga Wagga">
+  <div class="sc">
+    <div style="padding:26px 42px 0;"><h2 style="font-size:19px;color:var(--navy);">Campus Solar Potential Analysis</h2></div>
+    <div class="cw">
+      <div class="ci">
+        <!-- TO UPDATE: Replace with <img src="data:image/jpeg;base64,YOUR_BASE64_HERE" alt="Wagga Wagga Campus"> -->
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="3" y="3" width="46" height="46" rx="3" stroke="#4a6aad" stroke-width="2"/><circle cx="26" cy="20" r="9" stroke="#4a6aad" stroke-width="2"/><path d="M12 44 Q26 32 40 44" stroke="#4a6aad" stroke-width="2" fill="none"/></svg>
+        <div class="cil">[ Replace with Wagga Wagga Campus aerial image (base64 data URI) ]</div>
+      </div>
+      <div class="cinfo">
+        <h3>Wagga Wagga Campus</h3>
+        <p>Inland Riverina climate &#x2014; high solar exposure, low coastal cloud influence</p>
+        <p>Similar solar zone classification to Dubbo (Zone 3)</p>
+        <span class="cbadge">Zone 3 STC</span><span class="cbadge">High Solar Exposure</span>
+      </div>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 13</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- S14: Orange -->
+<div class="slide" id="s14" data-title="Campus: Orange">
+  <div class="sc">
+    <div style="padding:26px 42px 0;"><h2 style="font-size:19px;color:var(--navy);">Campus Solar Potential Analysis</h2></div>
+    <div class="cw">
+      <div class="ci">
+        <!-- TO UPDATE: Replace with <img src="data:image/jpeg;base64,YOUR_BASE64_HERE" alt="Orange Campus"> -->
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="3" y="3" width="46" height="46" rx="3" stroke="#4a6aad" stroke-width="2"/><circle cx="26" cy="20" r="9" stroke="#4a6aad" stroke-width="2"/><path d="M12 44 Q26 32 40 44" stroke="#4a6aad" stroke-width="2" fill="none"/></svg>
+        <div class="cil">[ Replace with Orange Campus aerial image (base64 data URI) ]</div>
+      </div>
+      <div class="cinfo">
+        <h3>Orange Campus</h3>
+        <p>Same inland solar zone as Dubbo/Wagga &#x2014; strong baseline irradiance</p>
+        <p>&#x7E;4.5&#x2013;4.8 peak sun hours/day (slightly lower than Dubbo due to elevation)</p>
+        <span class="cbadge">Zone 3 STC</span><span class="cbadge">Good Solar Resource</span>
+      </div>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 14</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- S15: Bathurst -->
+<div class="slide" id="s15" data-title="Campus: Bathurst">
+  <div class="sc">
+    <div style="padding:26px 42px 0;"><h2 style="font-size:19px;color:var(--navy);">Campus Solar Potential Analysis</h2></div>
+    <div class="cw">
+      <div class="ci">
+        <!-- TO UPDATE: Replace with <img src="data:image/jpeg;base64,YOUR_BASE64_HERE" alt="Bathurst Campus"> -->
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="3" y="3" width="46" height="46" rx="3" stroke="#4a6aad" stroke-width="2"/><circle cx="26" cy="20" r="9" stroke="#4a6aad" stroke-width="2"/><path d="M12 44 Q26 32 40 44" stroke="#4a6aad" stroke-width="2" fill="none"/></svg>
+        <div class="cil">[ Replace with Bathurst Campus aerial image (base64 data URI) ]</div>
+      </div>
+      <div class="cinfo">
+        <h3>Bathurst Campus</h3>
+        <p>Central West inland location &#x2014; good solar resource</p>
+        <p>Same STC zone as Dubbo/Wagga (Zone 3)</p>
+        <span class="cbadge">Zone 3 STC</span><span class="cbadge">Good Solar Resource</span>
+      </div>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 15</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- S16: Albury-Wodonga -->
+<div class="slide" id="s16" data-title="Campus: Albury-Wodonga">
+  <div class="sc">
+    <div style="padding:26px 42px 0;"><h2 style="font-size:19px;color:var(--navy);">Campus Solar Potential Analysis</h2></div>
+    <div class="cw">
+      <div class="ci">
+        <!-- TO UPDATE: Replace with <img src="data:image/jpeg;base64,YOUR_BASE64_HERE" alt="Albury-Wodonga Campus"> -->
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="3" y="3" width="46" height="46" rx="3" stroke="#4a6aad" stroke-width="2"/><circle cx="26" cy="20" r="9" stroke="#4a6aad" stroke-width="2"/><path d="M12 44 Q26 32 40 44" stroke="#4a6aad" stroke-width="2" fill="none"/></svg>
+        <div class="cil">[ Replace with CSU Albury-Wodonga aerial image (base64 data URI) ]</div>
+      </div>
+      <div class="cinfo">
+        <h3>CSU Albury-Wodonga Campus</h3>
+        <p>Inland but influenced by river climate &#x2014; good solar, slightly more seasonal variability</p>
+        <p>Home campus for this role &#x2014; strong candidate for pilot solar expansion project</p>
+        <span class="cbadge">River Climate Influence</span><span class="cbadge">Good Solar Potential</span><span class="cbadge">Pilot Campus Candidate</span>
+      </div>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 16</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- S17: Port Macquarie -->
+<div class="slide" id="s17" data-title="Campus: Port Macquarie">
+  <div class="sc">
+    <div style="padding:26px 42px 0;"><h2 style="font-size:19px;color:var(--navy);">Campus Solar Potential Analysis</h2></div>
+    <div class="cw">
+      <div class="ci">
+        <!-- TO UPDATE: Replace with <img src="data:image/jpeg;base64,YOUR_BASE64_HERE" alt="Port Macquarie Campus"> -->
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none"><rect x="3" y="3" width="46" height="46" rx="3" stroke="#4a6aad" stroke-width="2"/><circle cx="26" cy="20" r="9" stroke="#4a6aad" stroke-width="2"/><path d="M12 44 Q26 32 40 44" stroke="#4a6aad" stroke-width="2" fill="none"/></svg>
+        <div class="cil">[ Replace with Port Macquarie Campus aerial image (base64 data URI) ]</div>
+      </div>
+      <div class="cinfo">
+        <h3>Port Macquarie Campus</h3>
+        <p>Coastal location &#x2192; higher cloud cover, humidity, more rainfall variability</p>
+        <p>Solar yield lower than inland campuses &#x2014; battery storage &amp; demand management more viable here</p>
+        <span class="cbadge">Coastal Climate</span><span class="cbadge">Battery Storage Candidate</span>
+      </div>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 17</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+<!-- S18: WHAT I BRING -->
+<div class="slide" id="s18" data-title="What Do I Bring to the Table">
+  <div class="sc">
+    <div style="padding:26px 42px 0;"><h2 style="font-size:24px;color:var(--navy);">What do I bring to the table</h2></div>
+    <div class="ca" style="padding-top:10px;">
+      <ul class="brl">
+        <li>Having assessed 2500+ clients&#x2019; climate transition plans per year including giants such as CBA, Emirates, Bank of America, Morgan Stanley, Air New Zealand.</li>
+        <li>Experienced Project Manager for all needs to achieve the final outcome &#x2014; creating trackers, energy dashboard data collection automation, SOP drafting, developing dashboards.</li>
+        <li>Subject expertise in strategic renewable energy investment decisions and reporting.</li>
+        <li>External funding (Green loan) expert.</li>
+        <li>Project finance expert with experience in revenue, budgeting, effort estimation.</li>
+      </ul>
+    </div>
+    <div class="sf"><span>Presentation title</span><span>TEQSA PRV12018 (Australian University) CRICOS 00005F. &nbsp; 18</span></div>
+  </div>
+  <div class="deco"><svg class="svgd" viewBox="0 0 200 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"><circle cx="100" cy="110" r="13" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="26" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="39" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="52" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="65" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="100" cy="110" r="78" fill="none" stroke="#4a6aad" stroke-width="2.5"/><rect x="65" y="365" width="70" height="70" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="77" y="377" width="46" height="46" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><rect x="89" y="389" width="22" height="22" fill="none" stroke="#4a6aad" stroke-width="2.5" transform="rotate(45,100,400)"/><circle cx="100" cy="400" r="56" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="16" fill="none" stroke="#4a6aad" stroke-width="2.5"/><circle cx="140" cy="690" r="32" fill="none" stroke="#4a6aad" stroke-width="2.5"/></svg></div>
+</div>
+
+</div><!-- /pres -->
+
+<script>
+/* ===== PROTECTION ===== */
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('selectstart',e=>e.preventDefault());
+document.addEventListener('dragstart',e=>e.preventDefault());
+document.addEventListener('copy',e=>e.preventDefault());
+document.addEventListener('cut',e=>e.preventDefault());
+document.addEventListener('keydown',function(e){
+  var k=e.key.toLowerCase();
+  if(e.ctrlKey||e.metaKey){
+    if(['c','a','s','p','u','x','v','i','j','k','f','g'].includes(k)){e.preventDefault();return;}
+  }
+  if(['f12','f11','f10','f5'].includes(k)){e.preventDefault();return;}
+  if(e.key==='PrintScreen'){e.preventDefault();try{navigator.clipboard.writeText('').catch(function(){});}catch(er){}}
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(1);}
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(-1);}
+});
+
+/* ===== SLIDE SYSTEM ===== */
+var slides=Array.from(document.querySelectorAll('.slide'));
+var cur=0;
+
+function go(dir){
+  var nxt=cur+dir;
+  if(nxt<0||nxt>=slides.length)return;
+  slides[cur].classList.remove('active');
+  cur=nxt;
+  slides[cur].classList.add('active');
+  updNav();
+  if(slides[cur].id==='s11')resetLevers();
+}
+
+function updNav(){
+  document.getElementById('bnb').disabled=(cur===0);
+  document.getElementById('bnn').disabled=(cur===slides.length-1);
+  document.getElementById('sc').textContent=(cur+1)+' / '+slides.length;
+}
+
+/* ===== MENU ===== */
+function openMenu(){document.getElementById('mo').classList.add('open');}
+function closeMenu(){document.getElementById('mo').classList.remove('open');}
+document.getElementById('mo').addEventListener('click',function(e){if(e.target===this)closeMenu();});
+
+function buildMenu(){
+  var list=document.getElementById('mlist');
+  slides.forEach(function(s,i){
+    var li=document.createElement('li');
+    var num=document.createElement('span');
+    num.className='mn';
+    num.textContent=i+1;
+    li.appendChild(num);
+    li.appendChild(document.createTextNode(s.dataset.title||'Slide '+(i+1)));
+    li.addEventListener('click',function(){
+      slides[cur].classList.remove('active');
+      cur=i;
+      slides[cur].classList.add('active');
+      updNav();
+      closeMenu();
+      if(slides[cur].id==='s11')resetLevers();
+    });
+    list.appendChild(li);
+  });
+}
+
+/* ===== MOCK DOWNLOAD ===== */
+function mockDownload(){
+  var d=document.createElement('div');
+  d.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#1a2340;color:white;padding:22px 30px;border-radius:10px;z-index:9999;font-size:14px;text-align:center;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,.6);pointer-events:all;';
+  d.innerHTML='<strong style="font-size:15px;">Downloading CSU Climate Outlook 2026</strong><br><br>Link your report PDF to this button before the presentation:<br><code style="font-size:11px;background:#0d1320;padding:4px 8px;border-radius:4px;display:block;margin:10px 0;">window.open(\'CSU_Climate_Outlook_2026.pdf\')</code><button onclick="this.parentElement.remove()" style="background:white;color:#1a2340;border:none;padding:8px 20px;border-radius:5px;font-weight:700;cursor:pointer;margin-top:6px;pointer-events:all;">Close</button>';
+  document.body.appendChild(d);
+}
+
+/* ===== REDUCTION LEVERS ===== */
+var CSU_IDS=[
+  'lv01','lv02','lv03','lv04','lv05','lv06','lv07','lv08',
+  'lv13','lv20','lv21','lv22','lv23',
+  'lv27','lv29','lv30',
+  'lv37',
+  'lv48','lv49','lv52','lv56',
+  'lv67','lv68','lv70',
+  'lv75','lv78','lv79','lv80',
+  'lv82','lv83','lv84','lv85','lv86'
+];
+var lvState=0;
+
+function resetLevers(){
+  lvState=0;
+  document.querySelectorAll('.lv').forEach(function(el){el.classList.remove('csu','dim');});
+  document.getElementById('lvbtn').textContent='Highlight CSU-Applicable Actions \u203A';
+  document.getElementById('lvleg').style.display='none';
+}
+
+function leverStep(){
+  if(lvState===0){
+    document.querySelectorAll('.lv').forEach(function(el){
+      if(CSU_IDS.indexOf(el.id)>-1){el.classList.add('csu');el.classList.remove('dim');}
+      else{el.classList.add('dim');el.classList.remove('csu');}
+    });
+    document.getElementById('lvbtn').textContent='\u21BA Show All Levers';
+    document.getElementById('lvleg').style.display='block';
+    lvState=1;
+  } else {
+    resetLevers();
+  }
+}
+
+/* ===== INIT ===== */
+updNav();
+buildMenu();
+</script>
+</body>
+</html>

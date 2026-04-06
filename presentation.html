@@ -72,7 +72,17 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .tpm{color:var(--art-blue);font-size:11px;text-decoration:underline;cursor:default;}
 .tpb{display:none;position:absolute;background:var(--navy);color:white;padding:11px 14px;border-radius:10px;font-size:11.5px;line-height:1.6;width:280px;z-index:500;top:100%;left:0;box-shadow:0 8px 32px rgba(0,0,0,.35);pointer-events:none;}
 .tp:hover .tpb{display:block;}
-/* S4 SUCCESS BANNER */
+/* PHASE-THEMED DETAIL SLIDES */
+[data-phase="1"] .sh{background:#6b7db5;border-bottom-color:#8a9acc;}
+[data-phase="1"] .rt th{background:#6b7db5;}
+[data-phase="1"] .ph{border-left-color:#6b7db5;}
+[data-phase="2"] .sh{background:#5aaa8c;border-bottom-color:#7abfa6;}
+[data-phase="2"] .rt th{background:#5aaa8c;}
+[data-phase="2"] .ph{border-left-color:#5aaa8c;}
+[data-phase="3"] .sh{background:#e8603a;border-bottom-color:#ef8060;}
+[data-phase="3"] .rt th{background:#e8603a;}
+[data-phase="3"] .ph{border-left-color:#e8603a;}
+/* PHASE-THEMED DETAIL SLIDES */
 .s4-banner{background:linear-gradient(100deg,#0d1a2e 0%,#1a2a48 60%,#0d1a2e 100%);border-radius:10px;padding:14px 18px;margin-top:4px;overflow:hidden;position:relative;}
 .s4-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0px,rgba(255,255,255,.025) 1px,transparent 1px,transparent 60px);pointer-events:none;}
 .s4-bq{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
@@ -547,7 +557,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 </div>
 
 <!-- S6: MONTHS 10-12 -->
-<div class="slide" id="s6" data-title="Roadmap: Months 10&#x2013;12 (Feb&#x2013;Apr 2027)">
+<div class="slide" id="s6" data-title="Roadmap: Months 10&#x2013;12 (Feb&#x2013;Apr 2027)" data-phase="3" data-artcolor="#e8603a">
   <div class="sc">
     <div class="sh"><h1>12-Month Roadmap &mdash; Phase 3</h1><div class="sub">Stakeholder, Change &amp; Drafting &nbsp;|&nbsp; Review, assurance &amp; submission (Feb&#x2013;Apr 2027)</div></div>
     <div class="ca">
@@ -564,7 +574,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
         </tr>
         <tr>
           <td><span class="at">Website developing team</span>Drafting the wording on the article, wording the achievements in SEO-friendly way.</td>
-          <td><span class="pb">Social media execution plan</span><br><span class="pb">LinkedIn awareness</span><br><span class="pb">SEO plan</span></td>
+          <td>Social media execution plan &nbsp;&#xB7;&nbsp; LinkedIn awareness campaign &nbsp;&#xB7;&nbsp; SEO-optimised article plan</td>
         </tr>
       </table>
     </div>
@@ -572,7 +582,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 </div>
 
 <!-- S7: MONTHS 7-9 -->
-<div class="slide" id="s7" data-title="Roadmap: Months 7&#x2013;9 (Oct&#x2013;Dec 2026)">
+<div class="slide" id="s7" data-title="Roadmap: Months 7&#x2013;9 (Oct&#x2013;Dec 2026)" data-phase="3" data-artcolor="#e8603a">
   <div class="sc">
     <div class="sh"><h1>12-Month Roadmap &mdash; Phase 3</h1><div class="sub">Stakeholder, Change &amp; Drafting &nbsp;|&nbsp; Finalising the disclosure (Oct&#x2013;Dec 2026)</div></div>
     <div class="ca">
@@ -604,7 +614,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 </div>
 
 <!-- S8: MONTHS 4-6 -->
-<div class="slide" id="s8" data-title="Roadmap: Months 4&#x2013;6 (Jul&#x2013;Sep 2026)">
+<div class="slide" id="s8" data-title="Roadmap: Months 4&#x2013;6 (Jul&#x2013;Sep 2026)" data-phase="2" data-artcolor="#5aaa8c">
   <div class="sc">
     <div class="sh"><h1>12-Month Roadmap &mdash; Phase 2</h1><div class="sub">Project Execution &amp; Innovation &nbsp;|&nbsp; Tools, pilots &amp; data pipeline (Jul&#x2013;Sep 2026)</div></div>
     <div class="ca">
@@ -637,7 +647,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 </div>
 
 <!-- S9: MONTHS 1-3 DATA -->
-<div class="slide" id="s9" data-title="Roadmap: Months 1&#x2013;3 &#x2013; Data Collection &amp; Gap Analysis">
+<div class="slide" id="s9" data-title="Roadmap: Months 1&#x2013;3 &#x2013; Data Collection &amp; Gap Analysis" data-phase="1" data-artcolor="#6b7db5">
   <div class="sc">
     <div class="sh"><h1>12-Month Roadmap &mdash; Phase 1</h1><div class="sub">Data Foundation &nbsp;|&nbsp; Baseline defining &amp; gap analysis (Apr&#x2013;Jun 2026)</div></div>
     <div class="ca">
@@ -649,7 +659,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
           <td><span class="pb">Stakeholder information trigger protocol</span><br>Continuous drafting &nbsp;&#xB7;&nbsp; Stakeholder Tracker &nbsp;&#xB7;&nbsp; Department protocol on new building</td>
         </tr>
         <tr>
-          <td><span class="at">Materiality assessment</span>Determine which climate risks genuinely affect CSU&#x2019;s financial position. Aligned with the <span class="pb">Climate Ready NSW</span> framework.</td>
+          <td><span class="at">Materiality assessment</span>Determine which climate risks genuinely affect CSU&#x2019;s financial position. Aligned with the Climate Ready NSW framework.</td>
           <td><span class="pb">Limited assurance:</span> Early discussions and having beneficial agreements<br>Climate Risk Maturity Health Check Tool &nbsp;&#xB7;&nbsp; <span class="pb">Climate Ready NSW framework</span> &nbsp;&#xB7;&nbsp; NARCliM 2.0 physical risk scenarios &nbsp;&#xB7;&nbsp; XDI NSW hazard mapping</td>
         </tr>
         <tr>
@@ -665,7 +675,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 </div>
 
 <!-- S10: MONTHS 1-3 PLANNING -->
-<div class="slide" id="s10" data-title="Roadmap: Months 1&#x2013;3 &#x2013; Project Planning">
+<div class="slide" id="s10" data-title="Roadmap: Months 1&#x2013;3 &#x2013; Project Planning" data-phase="1" data-artcolor="#6b7db5">
   <div class="sc">
     <div class="sh"><h1>12-Month Roadmap &mdash; Phase 1</h1><div class="sub">Data Foundation &nbsp;|&nbsp; Project planning &amp; financial preparation (Apr&#x2013;Jun 2026)</div></div>
     <div class="ca">
@@ -1038,38 +1048,35 @@ function leverStep(){
 
 /* ART BACKGROUND — CSU-style pattern: circles + morphing cushion shape */
 function injectArt(){
-  var ac='#5b6bb5', sw=6, step=12, maxR=108, shapes='', r, b, cx, cy, d;
+  var sw=6, step=12, maxR=108, r, b, cx, cy, d;
 
-  function circleGroup(cx, cy){
-    for(r=6; r<=maxR; r+=step)
-      shapes+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
-  }
-
-  /* Cushion shape: b=0 at small r (pure diamond), b grows quadratically → convex sides.
-     Path: M top C(+b,-r)(+r,-b) right C(+r,+b)(+b,+r) bottom C(-b,+r)(-r,+b) left C(-r,-b)(-b,-r) top Z */
-  function cushionGroup(cx, cy){
-    for(r=6; r<=maxR; r+=step){
-      b = Math.round(0.38 * r * r / maxR * 10) / 10; /* 0 at small r, ~0.38*maxR at large r */
-      d = 'M '+cx+' '+(cy-r)
-        +' C '+(cx+b)+' '+(cy-r)+' '+(cx+r)+' '+(cy-b)+' '+(cx+r)+' '+cy
-        +' C '+(cx+r)+' '+(cy+b)+' '+(cx+b)+' '+(cy+r)+' '+cx+' '+(cy+r)
-        +' C '+(cx-b)+' '+(cy+r)+' '+(cx-r)+' '+(cy+b)+' '+(cx-r)+' '+cy
-        +' C '+(cx-r)+' '+(cy-b)+' '+(cx-b)+' '+(cy-r)+' '+cx+' '+(cy-r)+' Z';
-      shapes+='<path d="'+d+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
+  function buildSvg(ac){
+    var shapes='';
+    function circleGroup(cx,cy){
+      for(r=6;r<=maxR;r+=step)
+        shapes+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
     }
+    function cushionGroup(cx,cy){
+      for(r=6;r<=maxR;r+=step){
+        b=Math.round(0.38*r*r/maxR*10)/10;
+        d='M '+cx+' '+(cy-r)
+          +' C '+(cx+b)+' '+(cy-r)+' '+(cx+r)+' '+(cy-b)+' '+(cx+r)+' '+cy
+          +' C '+(cx+r)+' '+(cy+b)+' '+(cx+b)+' '+(cy+r)+' '+cx+' '+(cy+r)
+          +' C '+(cx-b)+' '+(cy+r)+' '+(cx-r)+' '+(cy+b)+' '+(cx-r)+' '+cy
+          +' C '+(cx-r)+' '+(cy-b)+' '+(cx-b)+' '+(cy-r)+' '+cx+' '+(cy-r)+' Z';
+        shapes+='<path d="'+d+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
+      }
+    }
+    circleGroup(100,85); cushionGroup(100,275); circleGroup(100,465);
+    return '<svg viewBox="0 0 200 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;">'+shapes+'</svg>';
   }
 
-  /* Three groups: circles top, cushion middle, circles bottom — overlapping */
-  circleGroup(100, 85);
-  cushionGroup(100, 275);
-  circleGroup(100, 465);
-
-  var svgMk='<svg viewBox="0 0 200 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;">'+shapes+'</svg>';
   document.querySelectorAll('.slide').forEach(function(slide){
-    var d=document.createElement('div');
-    d.className='art-bg';
-    d.innerHTML=svgMk;
-    slide.appendChild(d);
+    var ac=slide.getAttribute('data-artcolor')||'#5b6bb5';
+    var div=document.createElement('div');
+    div.className='art-bg';
+    div.innerHTML=buildSvg(ac);
+    slide.appendChild(div);
   });
 }
 

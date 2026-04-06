@@ -73,13 +73,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .tpb{display:none;position:absolute;background:var(--navy);color:white;padding:11px 14px;border-radius:10px;font-size:11.5px;line-height:1.6;width:280px;z-index:500;top:100%;left:0;box-shadow:0 8px 32px rgba(0,0,0,.35);pointer-events:none;}
 .tp:hover .tpb{display:block;}
 /* WORD CLOUD */
-.wc{display:flex;flex-wrap:wrap;gap:6px 9px;padding:12px 0 4px;align-content:flex-start;flex:1;}
-.wt{color:rgba(255,255,255,.9);line-height:1.25;cursor:default;transition:opacity .2s,transform .2s;}
-.wt:hover{opacity:.65;transform:scale(1.08);}
-.wt.w10{font-size:18px;font-weight:800;opacity:1;}
-.wt.w9{font-size:14px;font-weight:700;opacity:.88;}
-.wt.w8{font-size:12px;font-weight:600;opacity:.72;}
-.wt.w7{font-size:10px;font-weight:500;opacity:.54;}
+.wc{position:relative;flex:1;min-height:0;overflow:hidden;margin-top:10px;}
 /* PHASE-THEMED DETAIL SLIDES */
 [data-phase="1"] .sh{background:#6b7db5;border-bottom-color:#8a9acc;}
 [data-phase="1"] .rt th{background:#6b7db5;}
@@ -541,23 +535,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
             <div style="font-size:20px;font-weight:800;line-height:1.2;">Data Foundation</div>
             <div class="vph-sub">Baseline Defining &amp; Gap Analysis</div>
             <div class="vph-date">APR &ndash; JUN 2026</div>
-            <div class="wc">
-              <span class="wt w10">Baseline</span>
-              <span class="wt w10">Emissions Inventory</span>
-              <span class="wt w9">Activity Data</span>
-              <span class="wt w9">Data Integrity</span>
-              <span class="wt w9">Energy Measurement Automation</span>
-              <span class="wt w8">Financial Exposure</span>
-              <span class="wt w8">Gap Analysis</span>
-              <span class="wt w8">Scope 1</span>
-              <span class="wt w8">Scope 2</span>
-              <span class="wt w8">Tracker Creation</span>
-              <span class="wt w8">Dashboard Creation</span>
-              <span class="wt w7">Scope 3 Screening</span>
-              <span class="wt w7">Asset Register</span>
-              <span class="wt w7">Emission Factors</span>
-              <span class="wt w7">Payback Period</span>
-            </div>
+            <div class="wc" id="wc1"></div>
           </div>
         </div>
         <div class="vph" style="background:var(--ph2);">
@@ -566,23 +544,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
             <div style="font-size:20px;font-weight:800;line-height:1.2;">Project Execution &amp; Innovation</div>
             <div class="vph-sub">Tools, Pilots &amp; Data Pipeline</div>
             <div class="vph-date">JUL &ndash; SEP 2026</div>
-            <div class="wc">
-              <span class="wt w10">Data Pipeline</span>
-              <span class="wt w10">BMS Integration</span>
-              <span class="wt w9">Pilot Testing</span>
-              <span class="wt w9">NARCliM 2.0</span>
-              <span class="wt w9">Physical Risk</span>
-              <span class="wt w9">Change Management</span>
-              <span class="wt w8">Materiality Assessment</span>
-              <span class="wt w8">SteerCo</span>
-              <span class="wt w8">Campus Risk Profiles</span>
-              <span class="wt w8">Scope 1 Finalisation</span>
-              <span class="wt w7">Transition Risk</span>
-              <span class="wt w7">EV Infrastructure</span>
-              <span class="wt w7">Renewable PPA</span>
-              <span class="wt w7">Solar Expansion</span>
-              <span class="wt w7">Staff Briefings</span>
-            </div>
+            <div class="wc" id="wc2"></div>
           </div>
         </div>
         <div class="vph" style="background:var(--ph3);">
@@ -591,22 +553,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
             <div style="font-size:20px;font-weight:800;line-height:1.2;">Stakeholder, Change &amp; Drafting</div>
             <div class="vph-sub">Change Management &amp; Report Publication</div>
             <div class="vph-date">OCT 2026 &ndash; APR 2027</div>
-            <div class="wc">
-              <span class="wt w10">Disclosure Draft</span>
-              <span class="wt w10">TPG24-33 Compliance</span>
-              <span class="wt w10">Publication</span>
-              <span class="wt w9">Council Endorsement</span>
-              <span class="wt w9">Executive Review</span>
-              <span class="wt w9">Limited Assurance</span>
-              <span class="wt w8">Four Pillars</span>
-              <span class="wt w8">Net Zero</span>
-              <span class="wt w8">Stakeholder Engagement</span>
-              <span class="wt w7">NSW Treasury</span>
-              <span class="wt w7">Scope 2 LGC</span>
-              <span class="wt w7">SEO Strategy</span>
-              <span class="wt w7">LinkedIn Awareness</span>
-              <span class="wt w7">Media Plan</span>
-            </div>
+            <div class="wc" id="wc3"></div>
           </div>
         </div>
       </div>
@@ -1034,6 +981,7 @@ function go(dir){
   updNav();
   if(slides[cur].id==='s11')resetLevers();
   if(slides[cur].id==='s3')setTimeout(runCalAnim,400);
+  if(slides[cur].id==='s5')setTimeout(initWordClouds,80);
 }
 
 function updNav(){
@@ -1129,10 +1077,83 @@ function injectArt(){
   });
 }
 
+/* WORD CLOUD — spiral placement */
+var wcWords={
+  wc1:[
+    {t:'Baseline',w:10},{t:'Emissions Inventory',w:10},
+    {t:'Activity Data',w:9},{t:'Data Integrity',w:9},{t:'Energy Measurement Automation',w:9},
+    {t:'Financial Exposure',w:8},{t:'Gap Analysis',w:8},{t:'Scope 1',w:8},{t:'Scope 2',w:8},
+    {t:'Tracker Creation',w:8},{t:'Dashboard Creation',w:8},
+    {t:'Scope 3 Screening',w:7},{t:'Asset Register',w:7},{t:'Emission Factors',w:7},{t:'Payback Period',w:7}
+  ],
+  wc2:[
+    {t:'Data Pipeline',w:10},{t:'BMS Integration',w:10},
+    {t:'Pilot Testing',w:9},{t:'NARCliM 2.0',w:9},{t:'Physical Risk',w:9},{t:'Change Management',w:9},
+    {t:'Materiality Assessment',w:8},{t:'SteerCo',w:8},{t:'Campus Risk Profiles',w:8},{t:'Scope 1 Finalisation',w:8},
+    {t:'Transition Risk',w:7},{t:'EV Infrastructure',w:7},{t:'Renewable PPA',w:7},{t:'Solar Expansion',w:7},{t:'Staff Briefings',w:7}
+  ],
+  wc3:[
+    {t:'Disclosure Draft',w:10},{t:'TPG24-33 Compliance',w:10},{t:'Publication',w:10},
+    {t:'Council Endorsement',w:9},{t:'Executive Review',w:9},{t:'Limited Assurance',w:9},
+    {t:'Four Pillars',w:8},{t:'Net Zero',w:8},{t:'Stakeholder Engagement',w:8},
+    {t:'NSW Treasury',w:7},{t:'Scope 2 LGC',w:7},{t:'SEO Strategy',w:7},{t:'LinkedIn Awareness',w:7},{t:'Media Plan',w:7}
+  ]
+};
+var szMap={10:22,9:17,8:13,7:10};
+var fwMap={10:900,9:700,8:600,7:500};
+var opMap={10:'1',9:'.88',8:'.72',7:'.52'};
+function buildWordCloud(elId,words){
+  var el=document.getElementById(elId);
+  if(!el)return;
+  el.innerHTML='';
+  var W=el.offsetWidth||260, H=el.offsetHeight||190;
+  if(W<10||H<10)return;
+  var placed=[];
+  var sorted=words.slice().sort(function(a,b){return b.w-a.w;});
+  sorted.forEach(function(word,idx){
+    var fs=szMap[word.w];
+    var cw=fs*0.58, ch=fs*1.25;
+    var vert=(idx%5===2);
+    var tw=vert?ch:word.t.length*cw;
+    var th=vert?word.t.length*cw:ch;
+    var pos=null;
+    var cx=W/2, cy=H/2;
+    outer:for(var r=0;r<Math.max(W,H)*0.7;r+=3){
+      var steps=Math.max(12,Math.floor(2*Math.PI*(r+8)/7));
+      for(var s=0;s<steps;s++){
+        var angle=2*Math.PI*s/steps+idx*0.618;
+        var x=Math.round(cx+r*Math.cos(angle)-tw/2);
+        var y=Math.round(cy+r*Math.sin(angle)*0.62-th/2);
+        if(x<2||y<2||x+tw>W-2||y+th>H-2)continue;
+        var ok=true;
+        for(var p=0;p<placed.length;p++){
+          var pl=placed[p];
+          if(x<pl.x+pl.w+3&&x+tw>pl.x-3&&y<pl.y+pl.h+3&&y+th>pl.y-3){ok=false;break;}
+        }
+        if(ok){pos={x:x,y:y,w:tw,h:th,v:vert};break outer;}
+      }
+    }
+    if(!pos)return;
+    placed.push(pos);
+    var span=document.createElement('span');
+    span.textContent=word.t;
+    var st='position:absolute;left:'+pos.x+'px;top:'+pos.y+'px;font-size:'+fs+'px;font-weight:'+fwMap[word.w]+';color:rgba(255,255,255,'+opMap[word.w]+');white-space:nowrap;line-height:1;cursor:default;transition:opacity .2s,transform .15s;';
+    if(pos.v)st+='transform:rotate(90deg);transform-origin:0 0;';
+    span.style.cssText=st;
+    span.addEventListener('mouseenter',function(){this.style.opacity='.45';this.style.transform=(pos.v?'rotate(90deg) ':'')+'scale(1.12)';});
+    span.addEventListener('mouseleave',function(){this.style.opacity='';this.style.transform=pos.v?'rotate(90deg)':'';});
+    el.appendChild(span);
+  });
+}
+function initWordClouds(){
+  ['wc1','wc2','wc3'].forEach(function(id){buildWordCloud(id,wcWords[id]);});
+}
+
 /* INIT */
 updNav();
 buildMenu();
 injectArt();
+setTimeout(initWordClouds,120);
 </script>
 </body>
 </html>

@@ -24,9 +24,9 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .slide.active{display:flex;animation:sldIn .4s cubic-bezier(.22,.68,0,1.15) forwards;}
 @keyframes sldIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 /* ART BACKGROUND */
-.art-bg{position:absolute;right:0;top:0;width:210px;height:100%;pointer-events:none;z-index:0;overflow:hidden;opacity:.08;}
+.art-bg{position:absolute;right:0;top:0;width:360px;height:100%;pointer-events:none;z-index:0;overflow:visible;opacity:.08;}
 .art-bg svg{width:100%;height:100%;}
-#s1 .art-bg{left:44%;right:0;width:56%;opacity:.5;}
+#s1 .art-bg{left:36%;right:0;width:64%;opacity:.5;}
 #s3 .art-bg{opacity:.04;}
 /* NAV PILL - bottom-right */
 #nav{position:fixed;bottom:18px;right:20px;z-index:800;display:flex;align-items:center;gap:0;background:rgba(20,28,55,.92);backdrop-filter:blur(14px);border-radius:50px;padding:4px;box-shadow:0 4px 28px rgba(0,0,0,.5);}
@@ -1120,8 +1120,8 @@ function injectArt(){
         shapes+='<path d="'+d+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
       }
     }
-    circleGroup(100,85); cushionGroup(100,275); circleGroup(100,465);
-    return '<svg viewBox="0 0 200 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;">'+shapes+'</svg>';
+    circleGroup(180,90);  cushionGroup(90,285);  circleGroup(270,285); cushionGroup(180,480);
+    return '<svg viewBox="0 0 360 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;">'+shapes+'</svg>';
   }
 
   document.querySelectorAll('.slide').forEach(function(slide){

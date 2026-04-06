@@ -216,135 +216,210 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;background:white;overflow:hidden;z-index:1;">
 
     <!-- UTILITY BAR -->
-    <div style="background:#1c1c1c;padding:4px 22px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
-      <span style="font-size:9.5px;color:#aaa;">Charles Sturt University</span>
-      <div style="display:flex;gap:14px;font-size:9.5px;color:#bbb;">
-        <span>Future Students</span><span>Current Students</span><span>International</span><span>Staff</span><span>Researchers</span><span>Community</span><span>Alumni</span>
-        <span style="color:white;font-weight:600;">&#128269;</span>
+    <div style="background:#222;padding:5px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <div style="display:flex;align-items:center;gap:3px;color:#bbb;font-size:9px;">
+        <span style="font-size:13px;line-height:1;">&#8962;</span>
+        <span style="color:#555;margin:0 4px;">|</span>
+        <span>Future Students</span><span style="color:#555;margin:0 5px;">·</span>
+        <span>Current Students</span><span style="color:#555;margin:0 5px;">·</span>
+        <span>International</span><span style="color:#555;margin:0 5px;">·</span>
+        <span>Staff</span><span style="color:#555;margin:0 5px;">·</span>
+        <span>Researchers</span><span style="color:#555;margin:0 5px;">·</span>
+        <span>Community</span><span style="color:#555;margin:0 5px;">·</span>
+        <span>Alumni</span><span style="color:#555;margin:0 5px;">·</span>
+        <span>Giving</span>
+      </div>
+      <div style="display:flex;gap:12px;font-size:9px;color:#bbb;">
+        <span style="background:#444;padding:2px 8px;border-radius:2px;">Student Portal</span>
+        <span>Quicklinks &#9662;</span>
       </div>
     </div>
 
     <!-- MAIN HEADER -->
-    <div style="background:white;border-bottom:1px solid #e5e5e5;padding:10px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
-      <!-- CSU LOGO -->
-      <div style="display:flex;align-items:center;gap:11px;">
-        <svg width="34" height="44" viewBox="0 0 34 44" xmlns="http://www.w3.org/2000/svg">
-          <!-- Shield body -->
-          <path d="M1 1 L33 1 L33 26 Q33 40 17 43 Q1 40 1 26 Z" fill="#b5132a"/>
-          <!-- Gold horizontal band across middle -->
-          <rect x="1" y="18" width="32" height="5" fill="#f0c040" opacity=".9"/>
-          <!-- Crown top-centre -->
-          <path d="M10 5 L10 11 L13 8.5 L17 11.5 L21 8.5 L24 11 L24 5 Z" fill="#f0c040" opacity=".9"/>
-          <!-- Lower panel: stylised wavy river line -->
-          <path d="M5 31 Q9 28.5 13 31 Q17 33.5 21 31 Q25 28.5 29 31" fill="none" stroke="#f0c040" stroke-width="1.4" opacity=".9"/>
-          <!-- Stars lower quarters -->
-          <text x="9" y="28" fill="#f0c040" font-size="5" text-anchor="middle" opacity=".85">&#9733;</text>
-          <text x="25" y="28" fill="#f0c040" font-size="5" text-anchor="middle" opacity=".85">&#9733;</text>
-          <!-- Shield outline -->
-          <path d="M1 1 L33 1 L33 26 Q33 40 17 43 Q1 40 1 26 Z" fill="none" stroke="#8b0e1e" stroke-width=".8"/>
+    <div style="background:white;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <!-- CSU LOGO (accurate: horizontal wavy lines in red shield) -->
+      <div style="display:flex;align-items:center;gap:0;">
+        <svg width="48" height="52" viewBox="0 0 48 52" xmlns="http://www.w3.org/2000/svg">
+          <!-- Shield outline path -->
+          <path d="M4 2 L44 2 L44 32 Q44 48 24 51 Q4 48 4 32 Z" fill="white" stroke="#c0392b" stroke-width="1.5"/>
+          <!-- Horizontal wavy lines filling shield -->
+          <clipPath id="shieldClip">
+            <path d="M4 2 L44 2 L44 32 Q44 48 24 51 Q4 48 4 32 Z"/>
+          </clipPath>
+          <g clip-path="url(#shieldClip)" fill="none" stroke="#c0392b" stroke-width="1.8">
+            <path d="M4 8 Q14 6 24 8 Q34 10 44 8"/>
+            <path d="M4 13 Q14 11 24 13 Q34 15 44 13"/>
+            <path d="M4 18 Q14 16 24 18 Q34 20 44 18"/>
+            <path d="M4 23 Q14 21 24 23 Q34 25 44 23"/>
+            <path d="M4 28 Q14 26 24 28 Q34 30 44 28"/>
+            <path d="M4 33 Q14 31 24 33 Q34 35 44 33"/>
+            <path d="M4 38 Q14 36 24 38 Q34 40 44 38"/>
+            <path d="M4 43 Q14 41 24 43 Q34 45 44 43"/>
+            <path d="M6 48 Q15 46 24 48 Q33 50 42 48"/>
+          </g>
+          <!-- Shield outline on top -->
+          <path d="M4 2 L44 2 L44 32 Q44 48 24 51 Q4 48 4 32 Z" fill="none" stroke="#c0392b" stroke-width="1.8"/>
         </svg>
-        <div>
-          <div style="font-size:15px;font-weight:800;color:#b5132a;line-height:1.1;letter-spacing:-.2px;">Charles Sturt</div>
-          <div style="font-size:9.5px;color:#666;letter-spacing:1.2px;text-transform:uppercase;margin-top:1px;">University</div>
+        <div style="margin-left:10px;">
+          <div style="font-size:16px;font-weight:700;color:#c0392b;line-height:1.15;letter-spacing:-.3px;">Charles Sturt</div>
+          <div style="font-size:16px;font-weight:700;color:#c0392b;line-height:1.15;letter-spacing:-.3px;">University</div>
         </div>
       </div>
-      <!-- MAIN NAV -->
-      <div style="display:flex;align-items:center;gap:20px;font-size:12px;color:#333;">
-        <span>Study</span><span>Research</span><span>About</span><span>News &amp; Events</span><span>Alumni</span>
-        <div style="background:#b5132a;color:white;padding:7px 16px;border-radius:3px;font-size:11px;font-weight:700;">Apply Now</div>
+      <!-- Search icon only -->
+      <div style="font-size:20px;color:#333;cursor:pointer;">&#128269;</div>
+    </div>
+
+    <!-- GREEN SUSTAINABILITY BANNER (matches actual site) -->
+    <div style="background:#2a6049;padding:14px 20px 0;flex-shrink:0;position:relative;overflow:hidden;">
+      <!-- CSU circular arc art pattern (green on green) -->
+      <svg style="position:absolute;right:-20px;top:-30px;opacity:.18;width:260px;height:120px;" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <circle cx="210" cy="60" r="110" stroke="white" stroke-width="18"/>
+        <circle cx="210" cy="60" r="80" stroke="white" stroke-width="14"/>
+        <circle cx="210" cy="60" r="50" stroke="white" stroke-width="10"/>
+        <circle cx="100" cy="60" r="80" stroke="white" stroke-width="14"/>
+        <circle cx="100" cy="60" r="50" stroke="white" stroke-width="10"/>
+      </svg>
+      <div style="position:relative;display:inline-block;background:#2a6049;padding:6px 14px 6px 0;">
+        <span style="font-size:24px;font-weight:700;color:white;letter-spacing:-.3px;">Sustainability</span>
       </div>
     </div>
 
-    <!-- SUSTAINABILITY SUB-NAV -->
-    <div style="background:#f4f4f4;border-bottom:1px solid #ddd;padding:0 22px;display:flex;align-items:stretch;flex-shrink:0;overflow:hidden;">
-      <div style="padding:9px 14px 7px;border-bottom:3px solid #b5132a;font-size:11px;font-weight:700;color:#b5132a;white-space:nowrap;">Home</div>
-      <div style="padding:9px 14px 7px;border-bottom:3px solid transparent;font-size:11px;color:#555;white-space:nowrap;">Locations &#9662;</div>
-      <div style="padding:9px 14px 7px;border-bottom:3px solid transparent;font-size:11px;color:#555;white-space:nowrap;">What you can do</div>
-      <div style="padding:9px 14px 7px;border-bottom:3px solid transparent;font-size:11px;color:#555;white-space:nowrap;">LiFE Framework &#9662;</div>
-      <div style="padding:9px 14px 7px;border-bottom:3px solid transparent;font-size:11px;color:#555;white-space:nowrap;">Sustainable Development Goals &#9662;</div>
-      <div style="padding:9px 14px 7px;border-bottom:3px solid transparent;font-size:11px;color:#555;white-space:nowrap;">About us &#9662;</div>
-      <div style="padding:9px 14px 7px;border-bottom:3px solid transparent;font-size:11px;color:#555;white-space:nowrap;">Grants &#9662;</div>
-      <div style="padding:9px 14px 7px;border-bottom:3px solid transparent;font-size:11px;color:#555;white-space:nowrap;">Events</div>
-      <div style="padding:9px 14px 7px;border-bottom:3px solid transparent;font-size:11px;color:#555;white-space:nowrap;">Contact us</div>
+    <!-- DARK SUB-NAV -->
+    <div style="background:#1d3d2e;padding:0 20px;display:flex;align-items:stretch;flex-shrink:0;">
+      <div style="padding:9px 14px;border-bottom:3px solid white;font-size:10.5px;font-weight:600;color:white;white-space:nowrap;">Home</div>
+      <div style="padding:9px 12px;border-bottom:3px solid transparent;font-size:10.5px;color:rgba(255,255,255,.7);white-space:nowrap;">Locations &#9662;</div>
+      <div style="padding:9px 12px;border-bottom:3px solid transparent;font-size:10.5px;color:rgba(255,255,255,.7);white-space:nowrap;">What you can do</div>
+      <div style="padding:9px 12px;border-bottom:3px solid transparent;font-size:10.5px;color:rgba(255,255,255,.7);white-space:nowrap;">LiFE Framework &#9662;</div>
+      <div style="padding:9px 12px;border-bottom:3px solid transparent;font-size:10.5px;color:rgba(255,255,255,.7);white-space:nowrap;">Sustainable Development Goals &#9662;</div>
+      <div style="padding:9px 12px;border-bottom:3px solid transparent;font-size:10.5px;color:rgba(255,255,255,.7);white-space:nowrap;">About us &#9662;</div>
+      <div style="padding:9px 12px;border-bottom:3px solid transparent;font-size:10.5px;color:rgba(255,255,255,.7);white-space:nowrap;">Grants &#9662;</div>
+      <div style="padding:9px 12px;border-bottom:3px solid transparent;font-size:10.5px;color:rgba(255,255,255,.7);white-space:nowrap;">Events</div>
+      <div style="padding:9px 12px;border-bottom:3px solid transparent;font-size:10.5px;color:rgba(255,255,255,.7);white-space:nowrap;">Contact us</div>
     </div>
 
-    <!-- HERO BANNER -->
-    <div style="background:linear-gradient(100deg,#1a4520 0%,#2d6a4f 65%,#246050 100%);padding:22px 26px 20px;flex-shrink:0;position:relative;">
-      <div style="font-size:9px;color:rgba(255,255,255,.45);letter-spacing:.8px;text-transform:uppercase;margin-bottom:5px;">Home &nbsp;&#8250;&nbsp; Sustainability</div>
-      <h1 style="font-size:22px;font-weight:700;color:white;margin-bottom:6px;line-height:1.25;">Sustainability at Charles Sturt University</h1>
-      <p style="font-size:11.5px;color:rgba(255,255,255,.78);max-width:620px;line-height:1.55;">Our LiFE framework integrates sustainability across Learning, Infrastructure and Facilities, and Engagement &#x2014; from solar-powered campuses to Australia&#x2019;s first regional university TPG24-33 climate disclosure.</p>
+    <!-- HERO PHOTO (wattle flowers — CSS approximation) -->
+    <div style="flex-shrink:0;height:130px;position:relative;overflow:hidden;background:linear-gradient(135deg,#c8d86e 0%,#a8c43a 20%,#7aab28 40%,#4e8c2a 70%,#2d6a1a 100%);">
+      <!-- Wattle blossom blobs -->
+      <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 900 130" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <!-- Stems -->
+        <path d="M200 130 Q220 80 240 40 Q260 10 280 20" fill="none" stroke="#3a7a18" stroke-width="3" opacity=".6"/>
+        <path d="M350 130 Q370 70 400 30 Q420 5 440 15" fill="none" stroke="#3a7a18" stroke-width="2.5" opacity=".6"/>
+        <path d="M550 130 Q580 85 610 50 Q630 20 660 30" fill="none" stroke="#3a7a18" stroke-width="3" opacity=".6"/>
+        <path d="M700 130 Q720 90 750 60 Q775 35 800 45" fill="none" stroke="#3a7a18" stroke-width="2" opacity=".5"/>
+        <!-- Wattle blossoms (golden yellow clusters) -->
+        <g opacity=".92">
+          <circle cx="245" cy="42" r="9" fill="#f5d800"/><circle cx="258" cy="35" r="8" fill="#f5d800"/>
+          <circle cx="270" cy="28" r="7" fill="#f2c800"/><circle cx="283" cy="22" r="8" fill="#f5d800"/>
+          <circle cx="256" cy="22" r="7" fill="#f0c000"/><circle cx="268" cy="15" r="6" fill="#f5d800"/>
+        </g>
+        <g opacity=".9">
+          <circle cx="408" cy="32" r="8" fill="#f5d800"/><circle cx="420" cy="25" r="9" fill="#f5d800"/>
+          <circle cx="433" cy="18" r="7" fill="#f2c800"/><circle cx="445" cy="14" r="8" fill="#f5d800"/>
+          <circle cx="418" cy="13" r="6" fill="#f0c000"/>
+        </g>
+        <g opacity=".88">
+          <circle cx="618" cy="52" r="9" fill="#f5d800"/><circle cx="630" cy="44" r="8" fill="#f5d800"/>
+          <circle cx="645" cy="37" r="9" fill="#f2c800"/><circle cx="658" cy="30" r="7" fill="#f5d800"/>
+          <circle cx="632" cy="32" r="7" fill="#f0c000"/><circle cx="646" cy="22" r="8" fill="#f5d800"/>
+          <circle cx="660" cy="20" r="6" fill="#f5d800"/>
+        </g>
+        <g opacity=".8">
+          <circle cx="758" cy="62" r="7" fill="#f5d800"/><circle cx="770" cy="55" r="8" fill="#f5d800"/>
+          <circle cx="783" cy="47" r="7" fill="#f2c800"/>
+        </g>
+        <!-- Leaf fronds (silvery-green) -->
+        <g fill="#8ab840" opacity=".65">
+          <ellipse cx="230" cy="60" rx="18" ry="5" transform="rotate(-55 230 60)"/>
+          <ellipse cx="250" cy="55" rx="16" ry="4" transform="rotate(-40 250 55)"/>
+          <ellipse cx="380" cy="65" rx="20" ry="5" transform="rotate(-50 380 65)"/>
+          <ellipse cx="590" cy="75" rx="22" ry="5" transform="rotate(-45 590 75)"/>
+          <ellipse cx="720" cy="80" rx="18" ry="4" transform="rotate(-40 720 80)"/>
+        </g>
+      </svg>
+      <!-- Gradient overlay at bottom for text readability -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:50px;background:linear-gradient(to top,rgba(30,80,30,.8),transparent);"></div>
+      <div style="position:absolute;bottom:10px;left:20px;">
+        <span style="font-size:11px;color:rgba(255,255,255,.85);">Sustainability at Charles Sturt University</span>
+      </div>
     </div>
 
     <!-- MAIN CONTENT GRID -->
-    <div style="flex:1;overflow:hidden;display:grid;grid-template-columns:1fr 240px;min-height:0;">
+    <div style="flex:1;overflow:hidden;display:grid;grid-template-columns:1fr 210px;min-height:0;">
 
       <!-- LEFT CONTENT -->
-      <div style="padding:16px 22px;overflow-y:auto;border-right:1px solid #eee;">
+      <div style="padding:12px 18px;overflow-y:auto;border-right:1px solid #eee;">
 
         <!-- FEATURED: Climate Outlook announcement -->
-        <div style="background:#f0f7f2;border:1px solid #c8e6c9;border-left:5px solid #2d6a4f;border-radius:0 6px 6px 0;padding:14px 16px;margin-bottom:14px;position:relative;">
-          <div style="display:flex;align-items:center;gap:8px;margin-bottom:5px;">
-            <span style="background:#2d6a4f;color:white;font-size:9px;font-weight:700;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.5px;">Featured</span>
+        <div style="background:#f0f7f2;border:1px solid #c8e6c9;border-left:5px solid #2a6049;border-radius:0 6px 6px 0;padding:12px 14px;margin-bottom:12px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+            <span style="background:#2a6049;color:white;font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;text-transform:uppercase;letter-spacing:.5px;">Featured</span>
             <span style="font-size:10px;color:#888;">16 April 2027</span>
           </div>
-          <h2 style="font-size:15px;font-weight:700;color:#1a2340;margin-bottom:6px;line-height:1.3;">CSU publishes its first NSW TPG24-33&#x2011;aligned Climate Outlook for 2026</h2>
-          <p style="font-size:11.5px;color:#555;line-height:1.6;margin-bottom:11px;max-width:580px;">Aligned with the NSW Treasury climate disclosure framework, this marks Charles Sturt University&#x2019;s first formal climate-related financial disclosure &#x2014; setting a transparent baseline for Scope 1 &amp; 2 emissions, energy transition planning, and long-term campus resilience across six locations.</p>
-          <button onclick="mockDownload()" style="background:#2d6a4f;color:white;border:none;padding:8px 18px;border-radius:4px;font-size:11.5px;font-weight:700;cursor:pointer;pointer-events:all;display:inline-flex;align-items:center;gap:6px;">&#8675; Download Climate Outlook 2026 (PDF)</button>
+          <h2 style="font-size:14px;font-weight:700;color:#1a2340;margin-bottom:5px;line-height:1.3;">CSU publishes its first NSW TPG24-33&#x2011;aligned Climate Outlook for 2026</h2>
+          <p style="font-size:11px;color:#555;line-height:1.55;margin-bottom:10px;">Aligned with the NSW Treasury climate disclosure framework, this marks Charles Sturt University&#x2019;s first formal climate-related financial disclosure &#x2014; a transparent baseline for Scope 1 &amp; 2 emissions, energy transition, and campus resilience across six locations.</p>
+          <button onclick="mockDownload()" style="background:#2a6049;color:white;border:none;padding:7px 16px;border-radius:4px;font-size:11px;font-weight:700;cursor:pointer;pointer-events:all;display:inline-flex;align-items:center;gap:6px;">&#8675; Download Climate Outlook 2026 (PDF)</button>
         </div>
 
         <!-- THREE CONTENT CARDS -->
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-          <div style="border:1px solid #e0e0e0;border-radius:6px;overflow:hidden;background:white;">
-            <div style="background:#2d6a4f;padding:10px 12px;">
-              <div style="font-size:12px;font-weight:700;color:white;">LiFE Framework</div>
-            </div>
-            <div style="padding:11px 12px;">
-              <p style="font-size:11px;color:#555;line-height:1.55;margin-bottom:8px;">Our integrated sustainability model spanning Learning, Infrastructure &amp; Facilities, and Engagement.</p>
-              <span style="font-size:10.5px;color:#b5132a;font-weight:600;">Learn more &#8250;</span>
-            </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div style="border:1px solid #e0e0e0;border-radius:5px;overflow:hidden;background:white;">
+            <div style="background:#2a6049;padding:9px 11px;"><div style="font-size:11.5px;font-weight:700;color:white;">LiFE Framework</div></div>
+            <div style="padding:10px 11px;"><p style="font-size:10.5px;color:#555;line-height:1.5;margin-bottom:7px;">Integrated sustainability across Learning, Infrastructure &amp; Facilities, and Engagement.</p><span style="font-size:10px;color:#c0392b;font-weight:600;">Learn more &#8250;</span></div>
           </div>
-          <div style="border:1px solid #e0e0e0;border-radius:6px;overflow:hidden;background:white;">
-            <div style="background:#1a4a7e;padding:10px 12px;">
-              <div style="font-size:12px;font-weight:700;color:white;">Net Zero Target</div>
-            </div>
-            <div style="padding:11px 12px;">
-              <p style="font-size:11px;color:#555;line-height:1.55;margin-bottom:8px;">Committed to 70% emissions reduction by 2030 and 100% renewable electricity across all campuses.</p>
-              <span style="font-size:10.5px;color:#b5132a;font-weight:600;">Our targets &#8250;</span>
-            </div>
+          <div style="border:1px solid #e0e0e0;border-radius:5px;overflow:hidden;background:white;">
+            <div style="background:#1a4a7e;padding:9px 11px;"><div style="font-size:11.5px;font-weight:700;color:white;">Net Zero Target</div></div>
+            <div style="padding:10px 11px;"><p style="font-size:10.5px;color:#555;line-height:1.5;margin-bottom:7px;">70% emissions reduction by 2030 and 100% renewable electricity across all campuses.</p><span style="font-size:10px;color:#c0392b;font-weight:600;">Our targets &#8250;</span></div>
           </div>
-          <div style="border:1px solid #e0e0e0;border-radius:6px;overflow:hidden;background:white;">
-            <div style="background:#6a3a9e;padding:10px 12px;">
-              <div style="font-size:12px;font-weight:700;color:white;">SDG Alignment</div>
-            </div>
-            <div style="padding:11px 12px;">
-              <p style="font-size:11px;color:#555;line-height:1.55;margin-bottom:8px;">Mapping CSU research, teaching and campus operations to the UN Sustainable Development Goals.</p>
-              <span style="font-size:10.5px;color:#b5132a;font-weight:600;">Explore SDGs &#8250;</span>
-            </div>
+          <div style="border:1px solid #e0e0e0;border-radius:5px;overflow:hidden;background:white;">
+            <div style="background:#6a3a9e;padding:9px 11px;"><div style="font-size:11.5px;font-weight:700;color:white;">SDG Alignment</div></div>
+            <div style="padding:10px 11px;"><p style="font-size:10.5px;color:#555;line-height:1.5;margin-bottom:7px;">Mapping CSU research, teaching and operations to the UN Sustainable Development Goals.</p><span style="font-size:10px;color:#c0392b;font-weight:600;">Explore SDGs &#8250;</span></div>
           </div>
         </div>
 
       </div>
 
       <!-- RIGHT SIDEBAR -->
-      <div style="padding:16px;background:#fafafa;overflow-y:auto;border-left:1px solid #eee;">
-        <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">Quick Links</div>
-        <div style="border-bottom:1px solid #eee;padding:8px 0;font-size:11.5px;color:#333;display:flex;align-items:center;gap:7px;"><span style="color:#b5132a;font-weight:700;">&#8250;</span>What you can do</div>
-        <div style="border-bottom:1px solid #eee;padding:8px 0;font-size:11.5px;color:#333;display:flex;align-items:center;gap:7px;"><span style="color:#b5132a;font-weight:700;">&#8250;</span>Sustainability grants</div>
-        <div style="border-bottom:1px solid #eee;padding:8px 0;font-size:11.5px;color:#333;display:flex;align-items:center;gap:7px;"><span style="color:#b5132a;font-weight:700;">&#8250;</span>Upcoming events</div>
-        <div style="border-bottom:1px solid #eee;padding:8px 0;font-size:11.5px;color:#333;display:flex;align-items:center;gap:7px;"><span style="color:#b5132a;font-weight:700;">&#8250;</span>Campus solar data</div>
-        <div style="padding:8px 0;font-size:11.5px;color:#333;display:flex;align-items:center;gap:7px;"><span style="color:#b5132a;font-weight:700;">&#8250;</span>Contact us</div>
+      <div style="padding:12px 14px;background:#fafafa;overflow-y:auto;">
+        <div style="font-size:9.5px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;">Quick Links</div>
+        <div style="border-bottom:1px solid #eee;padding:6px 0;font-size:11px;color:#333;display:flex;align-items:center;gap:6px;"><span style="color:#c0392b;font-weight:700;">&#8250;</span>What you can do</div>
+        <div style="border-bottom:1px solid #eee;padding:6px 0;font-size:11px;color:#333;display:flex;align-items:center;gap:6px;"><span style="color:#c0392b;font-weight:700;">&#8250;</span>Sustainability grants</div>
+        <div style="border-bottom:1px solid #eee;padding:6px 0;font-size:11px;color:#333;display:flex;align-items:center;gap:6px;"><span style="color:#c0392b;font-weight:700;">&#8250;</span>Upcoming events</div>
+        <div style="border-bottom:1px solid #eee;padding:6px 0;font-size:11px;color:#333;display:flex;align-items:center;gap:6px;"><span style="color:#c0392b;font-weight:700;">&#8250;</span>Campus solar data</div>
+        <div style="padding:6px 0;font-size:11px;color:#333;display:flex;align-items:center;gap:6px;"><span style="color:#c0392b;font-weight:700;">&#8250;</span>Contact us</div>
 
         <!-- STATS -->
-        <div style="margin-top:14px;background:white;border:1px solid #e0e0e0;border-radius:6px;padding:13px;">
-          <div style="font-size:10px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">2026 Highlights</div>
-          <div style="margin-bottom:9px;"><div style="font-size:22px;font-weight:700;color:#2d6a4f;line-height:1;">38%</div><div style="font-size:10.5px;color:#666;margin-top:1px;">Renewable energy share</div></div>
-          <div style="margin-bottom:9px;"><div style="font-size:22px;font-weight:700;color:#1a4a7e;line-height:1;">&#8209;22%</div><div style="font-size:10.5px;color:#666;margin-top:1px;">Scope 1 &amp; 2 vs baseline</div></div>
-          <div style="margin-bottom:9px;"><div style="font-size:22px;font-weight:700;color:#6a3a9e;line-height:1;">6</div><div style="font-size:10.5px;color:#666;margin-top:1px;">Campuses profiled</div></div>
-          <div><div style="font-size:22px;font-weight:700;color:#b5132a;line-height:1;">4</div><div style="font-size:10.5px;color:#666;margin-top:1px;">TPG24-33 pillars addressed</div></div>
+        <div style="margin-top:12px;background:white;border:1px solid #e0e0e0;border-radius:5px;padding:11px;">
+          <div style="font-size:9.5px;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;">2026 Highlights</div>
+          <div style="margin-bottom:8px;"><div style="font-size:20px;font-weight:700;color:#2a6049;line-height:1;">38%</div><div style="font-size:10px;color:#666;margin-top:1px;">Renewable energy share</div></div>
+          <div style="margin-bottom:8px;"><div style="font-size:20px;font-weight:700;color:#1a4a7e;line-height:1;">&#8209;22%</div><div style="font-size:10px;color:#666;margin-top:1px;">Scope 1 &amp; 2 vs baseline</div></div>
+          <div style="margin-bottom:8px;"><div style="font-size:20px;font-weight:700;color:#6a3a9e;line-height:1;">6</div><div style="font-size:10px;color:#666;margin-top:1px;">Campuses profiled</div></div>
+          <div><div style="font-size:20px;font-weight:700;color:#c0392b;line-height:1;">4</div><div style="font-size:10px;color:#666;margin-top:1px;">TPG24-33 pillars</div></div>
         </div>
       </div>
 
     </div>
+  </div>
+
+  <!-- CALENDAR COUNTDOWN ANIMATION (appears on slide entry, races to 16 April 2027) -->
+  <div id="calAnim" style="position:absolute;bottom:18px;right:22px;z-index:10;background:rgba(26,53,36,.94);backdrop-filter:blur(12px);border-radius:12px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.4);display:flex;flex-direction:column;align-items:center;pointer-events:none;opacity:0;transition:opacity .4s;">
+    <div style="font-size:9px;color:rgba(255,255,255,.55);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:8px;">Target Publication Date</div>
+    <div style="display:flex;align-items:flex-end;gap:6px;">
+      <div style="text-align:center;">
+        <div id="calDay" style="font-size:38px;font-weight:800;color:white;line-height:1;font-variant-numeric:tabular-nums;min-width:54px;text-align:center;">01</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.45);margin-top:3px;text-transform:uppercase;letter-spacing:.8px;">Day</div>
+      </div>
+      <div style="font-size:34px;color:rgba(255,255,255,.3);margin-bottom:6px;line-height:1;">/</div>
+      <div style="text-align:center;">
+        <div id="calMon" style="font-size:38px;font-weight:800;color:#6ee39a;line-height:1;min-width:82px;text-align:center;">Jan</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.45);margin-top:3px;text-transform:uppercase;letter-spacing:.8px;">Month</div>
+      </div>
+      <div style="font-size:34px;color:rgba(255,255,255,.3);margin-bottom:6px;line-height:1;">/</div>
+      <div style="text-align:center;">
+        <div id="calYr" style="font-size:38px;font-weight:800;color:#ffd95c;line-height:1;min-width:74px;text-align:center;">2025</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.45);margin-top:3px;text-transform:uppercase;letter-spacing:.8px;">Year</div>
+      </div>
+    </div>
+    <div id="calCheck" style="margin-top:10px;font-size:11px;color:#6ee39a;font-weight:700;opacity:0;transition:opacity .5s;">&#10003;&ensp;Report Published</div>
   </div>
 </div>
 
@@ -813,14 +888,66 @@ document.addEventListener('keydown',function(e){
 var slides=Array.from(document.querySelectorAll('.slide'));
 var cur=0;
 
+/* CALENDAR ANIMATION for S3 */
+var calAnimTimer=null;
+function runCalAnim(){
+  var el=document.getElementById('calAnim');
+  if(!el)return;
+  el.style.opacity='1';
+  var dayEl=document.getElementById('calDay');
+  var monEl=document.getElementById('calMon');
+  var yrEl=document.getElementById('calYr');
+  var chk=document.getElementById('calCheck');
+  chk.style.opacity='0';
+  var months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  // Start: 1 Jan 2025, End: 16 Apr 2027
+  var startMs=new Date(2025,0,1).getTime();
+  var endMs=new Date(2027,3,16).getTime();
+  var totalMs=endMs-startMs;
+  var duration=2800; // ms animation duration
+  var startTime=null;
+  function easeOut(t){return 1-Math.pow(1-t,3);}
+  function tick(now){
+    if(!startTime)startTime=now;
+    var elapsed=now-startTime;
+    var progress=Math.min(elapsed/duration,1);
+    var eased=easeOut(progress);
+    var curMs=startMs+eased*totalMs;
+    var d=new Date(curMs);
+    var day=d.getDate();
+    var mon=d.getMonth();
+    var yr=d.getFullYear();
+    dayEl.textContent=String(day).padStart(2,'0');
+    monEl.textContent=months[mon];
+    yrEl.textContent=yr;
+    if(progress<1){
+      calAnimTimer=requestAnimationFrame(tick);
+    } else {
+      dayEl.textContent='16';
+      monEl.textContent='Apr';
+      yrEl.textContent='2027';
+      chk.style.opacity='1';
+    }
+  }
+  if(calAnimTimer)cancelAnimationFrame(calAnimTimer);
+  calAnimTimer=requestAnimationFrame(tick);
+}
+function stopCalAnim(){
+  var el=document.getElementById('calAnim');
+  if(el)el.style.opacity='0';
+  if(calAnimTimer){cancelAnimationFrame(calAnimTimer);calAnimTimer=null;}
+}
+
 function go(dir){
   var nxt=cur+dir;
   if(nxt<0||nxt>=slides.length)return;
   slides[cur].classList.remove('active');
+  if(slides[cur].id==='s3')stopCalAnim();
   cur=nxt;
   slides[cur].classList.add('active');
   updNav();
   if(slides[cur].id==='s11')resetLevers();
+  if(slides[cur].id==='s3')setTimeout(runCalAnim,400);
 }
 
 function updNav(){
@@ -844,9 +971,11 @@ function buildMenu(){
     li.appendChild(document.createTextNode(s.dataset.title||'Slide '+(i+1)));
     li.addEventListener('click',function(){
       slides[cur].classList.remove('active');
+      if(slides[cur].id==='s3')stopCalAnim();
       cur=i;slides[cur].classList.add('active');
       updNav();closeMenu();
       if(slides[cur].id==='s11')resetLevers();
+      if(slides[cur].id==='s3')setTimeout(runCalAnim,400);
     });
     list.appendChild(li);
   });

@@ -72,9 +72,28 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .tpm{color:var(--art-blue);font-size:11px;text-decoration:underline;cursor:default;}
 .tpb{display:none;position:absolute;background:var(--navy);color:white;padding:11px 14px;border-radius:10px;font-size:11.5px;line-height:1.6;width:280px;z-index:500;top:100%;left:0;box-shadow:0 8px 32px rgba(0,0,0,.35);pointer-events:none;}
 .tp:hover .tpb{display:block;}
+/* S4 SUCCESS BANNER */
+.s4-banner{background:linear-gradient(100deg,#0d1a2e 0%,#1a2a48 60%,#0d1a2e 100%);border-radius:10px;padding:14px 18px;margin-top:4px;overflow:hidden;position:relative;}
+.s4-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0px,rgba(255,255,255,.025) 1px,transparent 1px,transparent 60px);pointer-events:none;}
+.s4-bq{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.s4-bqm{font-size:18px;opacity:.7;}
+.s4-bq span:last-child{font-size:13px;font-weight:600;color:rgba(255,255,255,.88);letter-spacing:.1px;}
+.s4-track{display:flex;align-items:center;gap:6px;flex-wrap:nowrap;}
+.s4-step{display:flex;align-items:flex-start;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-left:3px solid var(--bc);border-radius:6px;padding:8px 10px;flex:1;min-width:0;animation:stepIn .5s ease both;}
+.s4-step:nth-child(1){animation-delay:.1s;}
+.s4-step:nth-child(3){animation-delay:.25s;}
+.s4-step:nth-child(5){animation-delay:.4s;}
+.s4-step:nth-child(7){animation-delay:.55s;}
+.s4-step:nth-child(9){animation-delay:.7s;}
+@keyframes stepIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.s4-sn{min-width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white;flex-shrink:0;margin-top:1px;}
+.s4-sl{font-size:10.5px;color:rgba(255,255,255,.82);line-height:1.45;}
+.s4-sl strong{color:white;display:block;font-size:11px;margin-bottom:2px;}
+.s4-arr{font-size:16px;color:rgba(255,255,255,.3);flex-shrink:0;}
 /* 4 PILLARS */
 .pg{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;padding:12px 0;}
-.pc{border-radius:8px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 12px rgba(0,0,0,.09);}
+.pc{border-radius:8px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 12px rgba(0,0,0,.09);transition:transform .22s cubic-bezier(.22,.68,0,1.3),box-shadow .22s;}
+.pc:hover{transform:scale(1.045);box-shadow:0 8px 28px rgba(0,0,0,.18);z-index:2;position:relative;}
 .pc-h{padding:13px 10px;color:white;font-weight:700;text-align:center;font-size:12px;letter-spacing:.5px;text-transform:uppercase;}
 .pc-sub{font-size:11px;color:rgba(255,255,255,.75);margin-top:3px;font-weight:400;text-transform:none;}
 .pc-body{background:white;padding:12px;flex:1;}
@@ -437,6 +456,41 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
           </div>
         </div>
       </div>
+
+      <!-- SUCCESS BANNER -->
+      <div class="s4-banner">
+        <div class="s4-bq">
+          <span class="s4-bqm">&#10067;</span>
+          <span>What does TPG24-33 expect &mdash; and how do we make every pillar a success?</span>
+        </div>
+        <div class="s4-track">
+          <div class="s4-step" style="--bc:#1a4a3a;">
+            <div class="s4-sn" style="background:#1a4a3a;">1</div>
+            <div class="s4-sl"><strong>Governance</strong> — appoint climate oversight body, document frequency &amp; escalation paths</div>
+          </div>
+          <div class="s4-arr">&#8594;</div>
+          <div class="s4-step" style="--bc:var(--ph2);">
+            <div class="s4-sn" style="background:var(--ph2);">2</div>
+            <div class="s4-sl"><strong>Strategy</strong> — map physical &amp; transition risks S1–S6, link to business model</div>
+          </div>
+          <div class="s4-arr">&#8594;</div>
+          <div class="s4-step" style="--bc:var(--ph1);">
+            <div class="s4-sn" style="background:var(--ph1);">3</div>
+            <div class="s4-sl"><strong>Risk Mgmt</strong> — integrate climate risk register into enterprise ERM framework</div>
+          </div>
+          <div class="s4-arr">&#8594;</div>
+          <div class="s4-step" style="--bc:var(--ph3);">
+            <div class="s4-sn" style="background:var(--ph3);">4</div>
+            <div class="s4-sl"><strong>Metrics &amp; Targets</strong> — disclose Scope 1 &amp; 2, methodology, and progress against targets</div>
+          </div>
+          <div class="s4-arr">&#8594;</div>
+          <div class="s4-step" style="--bc:#b5132a;">
+            <div class="s4-sn" style="background:#b5132a;">&#10003;</div>
+            <div class="s4-sl"><strong>Published</strong> — TPG24-33 compliant Climate Outlook, 16 April 2027</div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

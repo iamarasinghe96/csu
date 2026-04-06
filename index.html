@@ -139,15 +139,12 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .tll{font-size:12px;color:#888;margin-top:3px;}
 .tln{flex:1;height:2px;background:#dde;margin-bottom:5px;}
 /* STRUCTURE LIST (S2) */
-.s2wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 60px 28px;}
-.s2hd{text-align:center;margin-bottom:22px;}
-.s2hd h2{font-size:28px;font-weight:300;color:var(--navy);}
-.s2hd h2 strong{font-weight:800;}
-.s2g{display:flex;flex-direction:column;gap:8px;width:100%;max-width:680px;}
-.s2c{display:flex;align-items:center;gap:14px;padding:11px 18px;background:#f7f9fc;border-radius:10px;border-left:4px solid var(--art-blue);transition:background .18s,transform .18s;opacity:0;animation:s2In .45s ease forwards;}
+.s2wrap{flex:1;display:flex;flex-direction:column;align-items:center;padding:10px 60px 14px;min-height:0;}
+.s2g{display:flex;flex-direction:column;justify-content:space-between;flex:1;width:100%;max-width:700px;min-height:0;}
+.s2c{display:flex;align-items:center;gap:14px;padding:7px 16px;background:#f7f9fc;border-radius:9px;border-left:4px solid var(--art-blue);transition:background .18s,transform .18s;opacity:0;animation:s2In .45s ease forwards;}
 .s2c:hover{background:#eef2ff;transform:translateX(5px);}
-.s2n{min-width:30px;height:30px;border-radius:50%;background:var(--navy);color:white;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.s2tx{font-size:14px;color:var(--text-dk);line-height:1.5;font-weight:500;}
+.s2n{min-width:28px;height:28px;border-radius:50%;background:var(--navy);color:white;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.s2tx{font-size:14px;color:var(--text-dk);line-height:1.4;font-weight:500;}
 @keyframes s2In{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 .s2c:nth-child(1){animation-delay:.05s;border-left-color:#e8603a;}
 .s2c:nth-child(2){animation-delay:.10s;}

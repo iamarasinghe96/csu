@@ -72,6 +72,14 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .tpm{color:var(--art-blue);font-size:11px;text-decoration:underline;cursor:default;}
 .tpb{display:none;position:absolute;background:var(--navy);color:white;padding:11px 14px;border-radius:10px;font-size:11.5px;line-height:1.6;width:280px;z-index:500;top:100%;left:0;box-shadow:0 8px 32px rgba(0,0,0,.35);pointer-events:none;}
 .tp:hover .tpb{display:block;}
+/* WORD CLOUD */
+.wc{display:flex;flex-wrap:wrap;gap:6px 9px;padding:12px 0 4px;align-content:flex-start;flex:1;}
+.wt{color:rgba(255,255,255,.9);line-height:1.25;cursor:default;transition:opacity .2s,transform .2s;}
+.wt:hover{opacity:.65;transform:scale(1.08);}
+.wt.w10{font-size:18px;font-weight:800;opacity:1;}
+.wt.w9{font-size:14px;font-weight:700;opacity:.88;}
+.wt.w8{font-size:12px;font-weight:600;opacity:.72;}
+.wt.w7{font-size:10px;font-weight:500;opacity:.54;}
 /* PHASE-THEMED DETAIL SLIDES */
 [data-phase="1"] .sh{background:#6b7db5;border-bottom-color:#8a9acc;}
 [data-phase="1"] .rt th{background:#6b7db5;}
@@ -533,6 +541,23 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
             <div style="font-size:20px;font-weight:800;line-height:1.2;">Data Foundation</div>
             <div class="vph-sub">Baseline Defining &amp; Gap Analysis</div>
             <div class="vph-date">APR &ndash; JUN 2026</div>
+            <div class="wc">
+              <span class="wt w10">Baseline</span>
+              <span class="wt w10">Emissions Inventory</span>
+              <span class="wt w9">Activity Data</span>
+              <span class="wt w9">Data Integrity</span>
+              <span class="wt w9">Energy Measurement Automation</span>
+              <span class="wt w8">Financial Exposure</span>
+              <span class="wt w8">Gap Analysis</span>
+              <span class="wt w8">Scope 1</span>
+              <span class="wt w8">Scope 2</span>
+              <span class="wt w8">Tracker Creation</span>
+              <span class="wt w8">Dashboard Creation</span>
+              <span class="wt w7">Scope 3 Screening</span>
+              <span class="wt w7">Asset Register</span>
+              <span class="wt w7">Emission Factors</span>
+              <span class="wt w7">Payback Period</span>
+            </div>
           </div>
         </div>
         <div class="vph" style="background:var(--ph2);">
@@ -541,6 +566,23 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
             <div style="font-size:20px;font-weight:800;line-height:1.2;">Project Execution &amp; Innovation</div>
             <div class="vph-sub">Tools, Pilots &amp; Data Pipeline</div>
             <div class="vph-date">JUL &ndash; SEP 2026</div>
+            <div class="wc">
+              <span class="wt w10">Data Pipeline</span>
+              <span class="wt w10">BMS Integration</span>
+              <span class="wt w9">Pilot Testing</span>
+              <span class="wt w9">NARCliM 2.0</span>
+              <span class="wt w9">Physical Risk</span>
+              <span class="wt w9">Change Management</span>
+              <span class="wt w8">Materiality Assessment</span>
+              <span class="wt w8">SteerCo</span>
+              <span class="wt w8">Campus Risk Profiles</span>
+              <span class="wt w8">Scope 1 Finalisation</span>
+              <span class="wt w7">Transition Risk</span>
+              <span class="wt w7">EV Infrastructure</span>
+              <span class="wt w7">Renewable PPA</span>
+              <span class="wt w7">Solar Expansion</span>
+              <span class="wt w7">Staff Briefings</span>
+            </div>
           </div>
         </div>
         <div class="vph" style="background:var(--ph3);">
@@ -549,6 +591,22 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
             <div style="font-size:20px;font-weight:800;line-height:1.2;">Stakeholder, Change &amp; Drafting</div>
             <div class="vph-sub">Change Management &amp; Report Publication</div>
             <div class="vph-date">OCT 2026 &ndash; APR 2027</div>
+            <div class="wc">
+              <span class="wt w10">Disclosure Draft</span>
+              <span class="wt w10">TPG24-33 Compliance</span>
+              <span class="wt w10">Publication</span>
+              <span class="wt w9">Council Endorsement</span>
+              <span class="wt w9">Executive Review</span>
+              <span class="wt w9">Limited Assurance</span>
+              <span class="wt w8">Four Pillars</span>
+              <span class="wt w8">Net Zero</span>
+              <span class="wt w8">Stakeholder Engagement</span>
+              <span class="wt w7">NSW Treasury</span>
+              <span class="wt w7">Scope 2 LGC</span>
+              <span class="wt w7">SEO Strategy</span>
+              <span class="wt w7">LinkedIn Awareness</span>
+              <span class="wt w7">Media Plan</span>
+            </div>
           </div>
         </div>
       </div>

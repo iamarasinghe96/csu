@@ -24,9 +24,8 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .slide.active{display:flex;animation:sldIn .4s cubic-bezier(.22,.68,0,1.15) forwards;}
 @keyframes sldIn{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 /* ART BACKGROUND */
-.art-bg{position:absolute;right:0;top:0;width:360px;height:100%;pointer-events:none;z-index:0;overflow:visible;opacity:.08;}
+.art-bg{position:absolute;right:0;top:0;width:360px;height:100%;pointer-events:none;z-index:0;overflow:hidden;opacity:.08;}
 .art-bg svg{width:100%;height:100%;}
-#s1 .art-bg{left:36%;right:0;width:64%;opacity:.5;}
 #s3 .art-bg{opacity:.04;}
 /* NAV PILL - bottom-right */
 #nav{position:fixed;bottom:18px;right:20px;z-index:800;display:flex;align-items:center;gap:0;background:rgba(20,28,55,.92);backdrop-filter:blur(14px);border-radius:50px;padding:4px;box-shadow:0 4px 28px rgba(0,0,0,.5);}
@@ -210,7 +209,8 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .s1sub{font-size:15px;color:rgba(255,255,255,.42);margin-top:22px;line-height:1.75;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);}
 .s1name{font-size:20px;font-weight:600;color:white;margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);}
 .s1name span{display:block;font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px;}
-#s1 .art-bg{left:44%;right:0;width:56%;opacity:.55;transform:scale(1.9);transform-origin:center center;}
+#s1 .art-bg{left:44%;right:0;width:56%;opacity:.55;}
+#s1 .art-bg svg{transform:scale(1.9);transform-origin:center center;}
 /* PROTECTION OVERLAY */
 #po{position:fixed;inset:0;z-index:9990;pointer-events:none;background:repeating-linear-gradient(-55deg,transparent 0,transparent 150px,rgba(180,180,255,.012) 150px,rgba(180,180,255,.012) 151px);}
 </style>

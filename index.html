@@ -203,11 +203,14 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 #s1{flex-direction:row;}
 .s1l{background:var(--navy);width:44%;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;padding:52px 50px;position:relative;overflow:hidden;}
 .s1l::after{content:'';position:absolute;bottom:-80px;right:-80px;width:260px;height:260px;border-radius:50%;background:rgba(91,107,181,.08);}
-.s1c{flex:1;background:white;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;}
-.s1ey{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:16px;letter-spacing:.9px;text-transform:uppercase;}
-.s1t{font-size:40px;font-weight:300;color:white;line-height:1.25;}
+.s1c{flex:1;background:white;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative;overflow:hidden;}
+.s1ey{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:18px;letter-spacing:.9px;text-transform:uppercase;}
+.s1t{font-size:52px;font-weight:300;color:white;line-height:1.2;}
 .s1t strong{font-weight:700;color:var(--orange);}
-.s1sub{font-size:13px;color:rgba(255,255,255,.42);margin-top:22px;line-height:1.7;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);}
+.s1sub{font-size:15px;color:rgba(255,255,255,.42);margin-top:22px;line-height:1.75;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);}
+.s1name{font-size:20px;font-weight:600;color:white;margin-top:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.1);}
+.s1name span{display:block;font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px;}
+#s1 .art-bg{left:44%;right:0;width:56%;opacity:.55;transform:scale(1.9);transform-origin:center center;}
 /* PROTECTION OVERLAY */
 #po{position:fixed;inset:0;z-index:9990;pointer-events:none;background:repeating-linear-gradient(-55deg,transparent 0,transparent 150px,rgba(180,180,255,.012) 150px,rgba(180,180,255,.012) 151px);}
 </style>
@@ -232,9 +235,10 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 <!-- S1: TITLE -->
 <div class="slide active" id="s1" data-title="Title: Energy &amp; Climate Adaptation Plan">
   <div class="s1l">
-    <div class="s1ey">Charles Sturt University &bull; 2025&#x2013;2026</div>
+    <div class="s1ey">Charles Sturt University &bull; 2026&#x2013;2027</div>
     <div class="s1t">Energy &amp; <strong>Climate</strong><br>Adaptation Plan</div>
-    <div class="s1sub">12-Month Roadmap to NSW TPG24-33 Climate Disclosure<br>April 2026 &#x2013; April 2027</div>
+    <div class="s1sub">12-Month Roadmap to NSW TPG24-33 Climate Disclosure<br>April 2026 - April 2027</div>
+    <div class="s1name"><span>Presented by</span>Indika Amarasinghe</div>
   </div>
   <div class="s1c"></div>
 </div>

@@ -1079,21 +1079,33 @@ function buildMenu(){
 function buildStructure(){
   var g=document.getElementById('s2g');
   if(!g)return;
+  var cardIdx=0;
+  var campusStart=11, campusEnd=16; // s12–s17 = indices 11–16
+  var campusAdded=false;
   slides.forEach(function(s,i){
+    // Skip S2 itself and individual campus slides after the first
+    if(i===1)return; // skip "Presentation Structure"
+    if(i>campusStart&&i<=campusEnd){return;} // merged into one card
     var card=document.createElement('div');
     card.className='s2c';
-    card.style.animationDelay=(i*0.04+0.04)+'s';
+    card.style.animationDelay=(cardIdx*0.05+0.05)+'s';
     var num=document.createElement('div');
     num.className='s2n';
     if(i===0)num.style.background='#e8603a';
-    num.textContent=i+1;
+    num.textContent=cardIdx+1;
     var tx=document.createElement('div');
     tx.className='s2tx';
-    tx.textContent=s.dataset.title||'Slide '+(i+1);
+    if(i===campusStart){
+      tx.innerHTML='Campus Solar Potential Analysis <span style="font-size:12px;color:var(--art-blue);font-weight:400;">Dubbo · Wagga Wagga · Orange · Bathurst · Albury-Wodonga · Port Macquarie</span>';
+      card.addEventListener('click',function(){goTo(campusStart);});
+    } else {
+      tx.textContent=s.dataset.title||'Slide '+(i+1);
+      card.addEventListener('click',function(){goTo(i);});
+    }
     card.appendChild(num);
     card.appendChild(tx);
-    card.addEventListener('click',function(){goTo(i);});
     g.appendChild(card);
+    cardIdx++;
   });
 }
 

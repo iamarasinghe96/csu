@@ -144,18 +144,29 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .sl li{display:flex;align-items:flex-start;gap:13px;padding:10px 0;border-bottom:1px solid #eef0f7;font-size:15px;color:var(--text-dk);counter-increment:sli;}
 .sl li::before{content:counter(sli)'.';color:var(--art-blue);font-weight:700;font-size:15px;width:24px;flex-shrink:0;}
 /* LEVERS */
-.lvw{display:grid;grid-template-columns:175px 190px 195px 1fr 1fr;gap:12px;flex:1;overflow-y:auto;padding:10px 0;}
-.lvw::-webkit-scrollbar{width:4px;}
-.lvw::-webkit-scrollbar-thumb{background:#dde;border-radius:2px;}
-.lvct{font-size:13px;font-weight:700;color:var(--text-dk);margin-bottom:7px;}
-.lvsc{font-size:11px;font-weight:700;color:var(--text-md);margin:6px 0 2px;}
-.lv{font-size:11px;color:#555;padding:2px 0;line-height:1.4;transition:all .4s ease;}
-.lv.csu{color:var(--navy);font-weight:700;background:rgba(91,107,181,.1);padding:2px 6px;border-radius:4px;border-left:3px solid var(--art-blue);margin-bottom:2px;}
-.lv.dim{color:#ccc;}
-.lvc{text-align:center;padding:8px 0;flex-shrink:0;}
-.lvb{padding:10px 24px;background:var(--navy);color:white;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;pointer-events:all;transition:background .18s;}
+.lvw{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;flex:1;min-height:0;padding:4px 0;}
+.lvcat{background:#f7f9fc;border-radius:12px;padding:11px 13px;display:flex;flex-direction:column;min-height:0;overflow:hidden;border-top:3px solid #c8d0e8;}
+.lvcat:first-child{grid-row:span 2;}
+.lvcat-hd{font-size:11.5px;font-weight:800;color:white;padding:5px 11px;border-radius:7px;margin-bottom:8px;letter-spacing:.3px;flex-shrink:0;display:flex;align-items:center;gap:6px;}
+.lvsc{font-size:9px;font-weight:700;color:var(--text-md);margin:6px 0 3px;text-transform:uppercase;letter-spacing:.6px;flex-shrink:0;}
+.lv-chips{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:1px;}
+.lv{font-size:9.5px;color:#556;background:white;border:1px solid #dde2ef;border-radius:11px;padding:2px 8px;line-height:1.5;transition:all .35s cubic-bezier(.22,.68,0,1.2);cursor:default;white-space:nowrap;}
+.lv.csu{color:white;background:#6b7db5;border-color:#6b7db5;font-weight:700;box-shadow:0 2px 8px rgba(107,125,181,.45);transform:scale(1.06);}
+.lv.dim{opacity:.18;transform:scale(.95);}
+.lvc{display:flex;align-items:center;justify-content:space-between;padding:2px 0 6px;flex-shrink:0;}
+.lvb{padding:7px 20px;background:var(--navy);color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;pointer-events:all;transition:background .18s;}
 .lvb:hover{background:var(--navy-mid);}
-.lvleg{font-size:11px;color:var(--text-md);margin-top:5px;display:none;}
+.lvleg{font-size:11px;color:var(--text-md);display:none;}
+.lv-csu-add{margin-top:auto;padding:7px 10px;background:rgba(91,107,181,.1);border-radius:7px;font-size:9px;color:#3a4a7e;border-left:3px solid #6b7db5;flex-shrink:0;line-height:1.6;}
+.lv-csu-add strong{display:block;margin-bottom:3px;font-size:9.5px;}
+@keyframes lvCardIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+#s11 .lvcat{opacity:0;}
+#s11.active .lvcat{animation:lvCardIn .45s ease both;}
+#s11.active .lvcat:nth-child(1){animation-delay:.04s;}
+#s11.active .lvcat:nth-child(2){animation-delay:.1s;}
+#s11.active .lvcat:nth-child(3){animation-delay:.16s;}
+#s11.active .lvcat:nth-child(4){animation-delay:.22s;}
+#s11.active .lvcat:nth-child(5){animation-delay:.28s;}
 /* CAMPUS */
 .cw{display:flex;flex-direction:column;flex:1;padding:18px 40px;gap:14px;}
 .ci{width:100%;max-width:720px;height:330px;background:linear-gradient(135deg,#dce8f5,#c2d8e8);border:2px dashed var(--art-blue);display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:8px;color:var(--art-blue);font-size:13px;font-weight:600;flex-shrink:0;position:relative;overflow:hidden;}
@@ -725,49 +736,74 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 <!-- S11: REDUCTION LEVERS -->
 <div class="slide" id="s11" data-title="Reduction Levers: CSU-Applicable Actions">
   <div class="sc">
-    <div class="sh"><h1>Reduction Levers</h1><div class="sub">All known levers &mdash; then highlighting CSU-applicable actions</div></div>
+    <div class="sh"><h1>Reduction Levers</h1><div class="sub">All known levers &mdash; click to highlight CSU-applicable actions</div></div>
     <div class="lvc">
       <button class="lvb" id="lvbtn" onclick="leverStep()">Highlight CSU-Applicable Actions &#x203A;</button>
-      <div class="lvleg" id="lvleg">&#x25A0; = CSU-applicable &nbsp;|&nbsp; Dimmed = not primary focus for a university campus context</div>
+      <div class="lvleg" id="lvleg"><span style="display:inline-block;width:10px;height:10px;background:#6b7db5;border-radius:3px;margin-right:4px;vertical-align:middle;"></span>CSU-applicable &nbsp;|&nbsp; Dimmed = not primary focus for a university campus context</div>
     </div>
     <div class="lvw" id="lvw">
-      <div>
-        <div class="lvct">Energy Efficiency</div>
+
+      <!-- Card 1: Energy Efficiency (spans 2 rows) -->
+      <div class="lvcat" style="border-top-color:#4a6aad;">
+        <div class="lvcat-hd" style="background:#4a6aad;">&#x26A1; Energy Efficiency</div>
         <div class="lvsc">In buildings</div>
-        <div class="lv" id="lv01">Insulation</div><div class="lv" id="lv02">Maintenance program</div><div class="lv" id="lv03">Draught proofing</div><div class="lv" id="lv04">Solar shading</div><div class="lv" id="lv05">Building Energy Management Systems (BEMS)</div><div class="lv" id="lv06">Heating, Ventilation and Air Conditioning (HVAC)</div><div class="lv" id="lv07">Lighting</div><div class="lv" id="lv08">Motors and drives</div><div class="lv" id="lv09">Combined heat and power (cogeneration)</div><div class="lv" id="lv10">Other</div>
+        <div class="lv-chips">
+          <div class="lv" id="lv01">Insulation</div><div class="lv" id="lv02">Maintenance program</div><div class="lv" id="lv03">Draught proofing</div><div class="lv" id="lv04">Solar shading</div><div class="lv" id="lv05">BEMS</div><div class="lv" id="lv06">HVAC</div><div class="lv" id="lv07">Lighting</div><div class="lv" id="lv08">Motors &amp; drives</div><div class="lv" id="lv09">Cogeneration</div><div class="lv" id="lv10">Other</div>
+        </div>
         <div class="lvsc">In production processes</div>
-        <div class="lv" id="lv11">Waste heat recovery</div><div class="lv" id="lv12">Cooling technology</div><div class="lv" id="lv13">Process optimization</div><div class="lv" id="lv14">Fuel switch</div><div class="lv" id="lv15">Compressed air</div><div class="lv" id="lv16">Combined heat and power</div><div class="lv" id="lv17">Wastewater treatment</div><div class="lv" id="lv18">Reuse of water</div><div class="lv" id="lv19">Reuse of steam</div><div class="lv" id="lv20">Machine/equipment replacement</div><div class="lv" id="lv21">Automation</div><div class="lv" id="lv22">Electrification</div><div class="lv" id="lv23">Smart control system</div><div class="lv" id="lv24">Motors and drives</div><div class="lv" id="lv25">Product or service design</div><div class="lv" id="lv26">Other</div>
+        <div class="lv-chips">
+          <div class="lv" id="lv11">Waste heat recovery</div><div class="lv" id="lv12">Cooling technology</div><div class="lv" id="lv13">Process optimization</div><div class="lv" id="lv14">Fuel switch</div><div class="lv" id="lv15">Compressed air</div><div class="lv" id="lv16">CHP</div><div class="lv" id="lv17">Wastewater treatment</div><div class="lv" id="lv18">Water reuse</div><div class="lv" id="lv19">Steam reuse</div><div class="lv" id="lv20">Equipment replacement</div><div class="lv" id="lv21">Automation</div><div class="lv" id="lv22">Electrification</div><div class="lv" id="lv23">Smart controls</div><div class="lv" id="lv24">Motors &amp; drives</div><div class="lv" id="lv25">Product/service design</div><div class="lv" id="lv26">Other</div>
+        </div>
         <div class="lvsc">Waste &amp; circularity</div>
-        <div class="lv" id="lv27">Waste reduction</div><div class="lv" id="lv28">Product/service design</div><div class="lv" id="lv29">Material reuse</div><div class="lv" id="lv30">Material recycling</div><div class="lv" id="lv31">Remanufacturing</div><div class="lv" id="lv32">Other</div>
+        <div class="lv-chips">
+          <div class="lv" id="lv27">Waste reduction</div><div class="lv" id="lv28">Product/service design</div><div class="lv" id="lv29">Material reuse</div><div class="lv" id="lv30">Material recycling</div><div class="lv" id="lv31">Remanufacturing</div><div class="lv" id="lv32">Other</div>
+        </div>
         <div class="lvsc">Fugitive emissions</div>
-        <div class="lv" id="lv33">Agricultural methane capture</div><div class="lv" id="lv34">Agricultural nitrous oxide reduction</div><div class="lv" id="lv35">Landfill methane capture</div><div class="lv" id="lv36">Oil/gas methane leak capture/prevention</div><div class="lv" id="lv37">Refrigerant leakage reduction</div><div class="lv" id="lv38">Carbon capture and storage/utilization</div><div class="lv" id="lv39">Other</div>
-      </div>
-      <div>
-        <div class="lvct">Low-carbon Energy Consumption</div>
-        <div class="lv" id="lv40">Solid biofuels</div><div class="lv" id="lv41">Liquid biofuels</div><div class="lv" id="lv42">Biogas</div><div class="lv" id="lv43">Geothermal</div><div class="lv" id="lv44">Large hydropower (&gt;25 MW)</div><div class="lv" id="lv45">Small hydropower (&lt;25 MW)</div><div class="lv" id="lv46">Hydropower (capacity unknown)</div><div class="lv" id="lv47">Renewable hydrogen fuel cell</div><div class="lv" id="lv48">Solar heating and cooling</div><div class="lv" id="lv49">Solar PV</div><div class="lv" id="lv50">Solar CSP</div><div class="lv" id="lv51">Nuclear</div><div class="lv" id="lv52">Wind</div><div class="lv" id="lv53">Tidal</div><div class="lv" id="lv54">Wave</div><div class="lv" id="lv55">Fossil fuel plant fitted with CCS</div><div class="lv" id="lv56">Low-carbon electricity mix</div><div class="lv" id="lv57">Other</div>
-      </div>
-      <div>
-        <div class="lvct">Low-carbon Energy Generation</div>
-        <div class="lv" id="lv58">Solid biofuels</div><div class="lv" id="lv59">Liquid biofuels</div><div class="lv" id="lv60">Biogas</div><div class="lv" id="lv61">Geothermal</div><div class="lv" id="lv62">Large hydropower (&gt;25 MW)</div><div class="lv" id="lv63">Small hydropower (&lt;25 MW)</div><div class="lv" id="lv64">Hydropower (capacity unknown)</div><div class="lv" id="lv65">Renewable hydrogen fuel cell</div><div class="lv" id="lv66">Nuclear</div><div class="lv" id="lv67">Solar heating and cooling</div><div class="lv" id="lv68">Solar PV</div><div class="lv" id="lv69">Solar CSP</div><div class="lv" id="lv70">Wind</div><div class="lv" id="lv71">Tidal</div><div class="lv" id="lv72">Wave</div><div class="lv" id="lv73">Fossil fuel plant fitted with CCS</div><div class="lv" id="lv74">Other</div>
-      </div>
-      <div>
-        <div class="lvct">Company Policy / Behavioural</div>
-        <div class="lv" id="lv75">Supplier engagement</div><div class="lv" id="lv76">Customer engagement</div><div class="lv" id="lv77">Site consolidation/closure</div><div class="lv" id="lv78">Change in purchasing practices</div><div class="lv" id="lv79">Resource efficiency</div><div class="lv" id="lv80">Waste management</div><div class="lv" id="lv81">Other</div>
-        <div class="lvsc" style="margin-top:14px;">Transportation</div>
-        <div class="lv" id="lv82">Business travel policy</div><div class="lv" id="lv83">Teleworking</div><div class="lv" id="lv84">Employee commuting</div><div class="lv" id="lv85">Company fleet vehicle replacement</div><div class="lv" id="lv86">Company fleet vehicle efficiency</div><div class="lv" id="lv87">Other</div>
-      </div>
-      <div>
-        <div class="lvct">Non-energy Industrial Process</div>
-        <div class="lv" id="lv88">Process equipment replacement</div><div class="lv" id="lv89">Process material substitution</div><div class="lv" id="lv90">Process material efficiency</div><div class="lv" id="lv91">Carbon capture &amp; storage (CCS/U)</div><div class="lv" id="lv92">Other</div>
-        <div style="margin-top:16px;padding:12px;background:var(--green-lt);border-radius:8px;font-size:12px;color:var(--green-dk);border-left:3px solid var(--green-dk);">
-          <strong>CSU-specific additions:</strong><br>
-          &#x25AA; Sustainable procurement policy<br>
-          &#x25AA; Carbon-aware event planning<br>
-          &#x25AA; Staff green travel incentives<br>
-          &#x25AA; Campus waste segregation program<br>
-          &#x25AA; Green loan &amp; capital strategy
+        <div class="lv-chips">
+          <div class="lv" id="lv33">Agricultural methane capture</div><div class="lv" id="lv34">Ag. nitrous oxide reduction</div><div class="lv" id="lv35">Landfill methane capture</div><div class="lv" id="lv36">Oil/gas leak prevention</div><div class="lv" id="lv37">Refrigerant leakage reduction</div><div class="lv" id="lv38">CCS/U</div><div class="lv" id="lv39">Other</div>
         </div>
       </div>
+
+      <!-- Card 2: Low-carbon Energy Consumption (row 1, col 2) -->
+      <div class="lvcat" style="border-top-color:#3a9080;">
+        <div class="lvcat-hd" style="background:#3a9080;">&#x1F50B; Low-carbon Energy Consumption</div>
+        <div class="lv-chips">
+          <div class="lv" id="lv40">Solid biofuels</div><div class="lv" id="lv41">Liquid biofuels</div><div class="lv" id="lv42">Biogas</div><div class="lv" id="lv43">Geothermal</div><div class="lv" id="lv44">Large hydropower (&gt;25MW)</div><div class="lv" id="lv45">Small hydropower (&lt;25MW)</div><div class="lv" id="lv46">Hydropower (unknown)</div><div class="lv" id="lv47">Renewable H&#x2082; fuel cell</div><div class="lv" id="lv48">Solar heating &amp; cooling</div><div class="lv" id="lv49">Solar PV</div><div class="lv" id="lv50">Solar CSP</div><div class="lv" id="lv51">Nuclear</div><div class="lv" id="lv52">Wind</div><div class="lv" id="lv53">Tidal</div><div class="lv" id="lv54">Wave</div><div class="lv" id="lv55">Fossil + CCS</div><div class="lv" id="lv56">Low-carbon electricity mix</div><div class="lv" id="lv57">Other</div>
+        </div>
+      </div>
+
+      <!-- Card 3: Low-carbon Energy Generation (row 1, col 3) -->
+      <div class="lvcat" style="border-top-color:#d97820;">
+        <div class="lvcat-hd" style="background:#d97820;">&#x2600;&#xFE0F; Low-carbon Energy Generation</div>
+        <div class="lv-chips">
+          <div class="lv" id="lv58">Solid biofuels</div><div class="lv" id="lv59">Liquid biofuels</div><div class="lv" id="lv60">Biogas</div><div class="lv" id="lv61">Geothermal</div><div class="lv" id="lv62">Large hydropower (&gt;25MW)</div><div class="lv" id="lv63">Small hydropower (&lt;25MW)</div><div class="lv" id="lv64">Hydropower (unknown)</div><div class="lv" id="lv65">Renewable H&#x2082; fuel cell</div><div class="lv" id="lv66">Nuclear</div><div class="lv" id="lv67">Solar heating &amp; cooling</div><div class="lv" id="lv68">Solar PV</div><div class="lv" id="lv69">Solar CSP</div><div class="lv" id="lv70">Wind</div><div class="lv" id="lv71">Tidal</div><div class="lv" id="lv72">Wave</div><div class="lv" id="lv73">Fossil + CCS</div><div class="lv" id="lv74">Other</div>
+        </div>
+      </div>
+
+      <!-- Card 4: Company Policy / Behavioural (row 2, col 2) -->
+      <div class="lvcat" style="border-top-color:#5a4fa0;">
+        <div class="lvcat-hd" style="background:#5a4fa0;">&#x1F3E2; Company Policy / Behavioural</div>
+        <div class="lv-chips">
+          <div class="lv" id="lv75">Supplier engagement</div><div class="lv" id="lv76">Customer engagement</div><div class="lv" id="lv77">Site consolidation/closure</div><div class="lv" id="lv78">Change in purchasing</div><div class="lv" id="lv79">Resource efficiency</div><div class="lv" id="lv80">Waste management</div><div class="lv" id="lv81">Other</div>
+        </div>
+        <div class="lvsc">Transportation</div>
+        <div class="lv-chips">
+          <div class="lv" id="lv82">Business travel policy</div><div class="lv" id="lv83">Teleworking</div><div class="lv" id="lv84">Employee commuting</div><div class="lv" id="lv85">Fleet vehicle replacement</div><div class="lv" id="lv86">Fleet vehicle efficiency</div><div class="lv" id="lv87">Other</div>
+        </div>
+      </div>
+
+      <!-- Card 5: Non-energy Industrial + CSU additions (row 2, col 3) -->
+      <div class="lvcat" style="border-top-color:#6a7a8a;">
+        <div class="lvcat-hd" style="background:#6a7a8a;">&#x1F3ED; Non-energy Industrial Process</div>
+        <div class="lv-chips">
+          <div class="lv" id="lv88">Equipment replacement</div><div class="lv" id="lv89">Material substitution</div><div class="lv" id="lv90">Material efficiency</div><div class="lv" id="lv91">CCS/U</div><div class="lv" id="lv92">Other</div>
+        </div>
+        <div class="lv-csu-add" id="csu-add">
+          <strong>CSU-specific additions</strong>
+          &#x25AA; Sustainable procurement policy &nbsp;&#x25AA; Carbon-aware event planning &nbsp;&#x25AA; Staff green travel incentives &nbsp;&#x25AA; Campus waste segregation program &nbsp;&#x25AA; Green loan &amp; capital strategy
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

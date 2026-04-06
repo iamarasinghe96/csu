@@ -138,10 +138,30 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .tld{width:12px;height:12px;border-radius:50%;}
 .tll{font-size:12px;color:#888;margin-top:3px;}
 .tln{flex:1;height:2px;background:#dde;margin-bottom:5px;}
-/* STRUCTURE LIST */
-.sl{list-style:none;padding:0;margin:8px 0;counter-reset:sli;}
-.sl li{display:flex;align-items:flex-start;gap:13px;padding:10px 0;border-bottom:1px solid #eef0f7;font-size:17px;color:var(--text-dk);counter-increment:sli;}
-.sl li::before{content:counter(sli)'.';color:var(--art-blue);font-weight:700;font-size:17px;width:24px;flex-shrink:0;}
+/* STRUCTURE LIST (S2) */
+.s2wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 60px 28px;}
+.s2hd{text-align:center;margin-bottom:22px;}
+.s2hd h2{font-size:28px;font-weight:300;color:var(--navy);}
+.s2hd h2 strong{font-weight:800;}
+.s2g{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;width:100%;max-width:860px;}
+.s2c{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;background:#f7f9fc;border-radius:10px;border-left:4px solid var(--art-blue);transition:background .18s,transform .18s;opacity:0;animation:s2In .45s ease forwards;}
+.s2c:hover{background:#eef2ff;transform:translateX(4px);}
+.s2n{min-width:30px;height:30px;border-radius:50%;background:var(--navy);color:white;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.s2tx{font-size:14px;color:var(--text-dk);line-height:1.5;font-weight:500;}
+@keyframes s2In{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.s2c:nth-child(1){animation-delay:.06s;border-left-color:#e8603a;}
+.s2c:nth-child(2){animation-delay:.12s;}
+.s2c:nth-child(3){animation-delay:.18s;}
+.s2c:nth-child(4){animation-delay:.24s;}
+.s2c:nth-child(5){animation-delay:.30s;}
+.s2c:nth-child(6){animation-delay:.36s;}
+.s2c:nth-child(7){animation-delay:.42s;}
+.s2c:nth-child(8){animation-delay:.48s;}
+.s2c:nth-child(9){animation-delay:.54s;}
+.s2c:nth-child(10){animation-delay:.60s;}
+.s2c:nth-child(11){animation-delay:.66s;grid-column:1/-1;max-width:calc(50% - 10px);justify-self:center;}
+#s2 .s2c{animation-play-state:paused;}
+#s2.active .s2c{animation-play-state:running;}
 /* LEVERS */
 .lvw{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;flex:1;min-height:0;padding:4px 0;}
 .lvcat{background:#f7f9fc;border-radius:12px;padding:11px 13px;display:flex;flex-direction:column;min-height:0;overflow:hidden;border-top:3px solid #c8d0e8;}
@@ -246,21 +266,21 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 <!-- S2: STRUCTURE -->
 <div class="slide" id="s2" data-title="Presentation Structure">
   <div class="sc">
-    <div style="padding:28px 40px 0;"><h2 style="font-size:24px;font-weight:300;color:var(--navy);">Presentation <strong style="font-weight:700;">Structure</strong></h2></div>
-    <div class="ca" style="padding-top:10px;">
-      <ol class="sl">
-        <li>April 16 2027 &#x2013; The day of report publish.</li>
-        <li>Walkthrough of the CSU Climate Outlook 2026.</li>
-        <li>Backtrack the progress and initiatives.</li>
-        <li>NSW 4 Pillars integration.</li>
-        <li>Materiality assessment, Data collection, Automation.</li>
-        <li>Processes in place to make it happen.</li>
-        <li>Innovation, Tracking, Tools.</li>
-        <li>Strategy &amp; Governance.</li>
-        <li>Student Activities.</li>
-        <li>Internal and external stakeholder information management.</li>
-        <li>What do I bring to the table.</li>
-      </ol>
+    <div class="sh"><h1>Presentation Structure</h1><div class="sub">What this presentation covers - end to end</div></div>
+    <div class="s2wrap">
+      <div class="s2g">
+        <div class="s2c"><div class="s2n" style="background:#e8603a;">1</div><div class="s2tx">April 16 2027 - The day of report publish.</div></div>
+        <div class="s2c"><div class="s2n">2</div><div class="s2tx">Walkthrough of the CSU Climate Outlook 2026.</div></div>
+        <div class="s2c"><div class="s2n">3</div><div class="s2tx">Backtrack the progress and initiatives.</div></div>
+        <div class="s2c"><div class="s2n">4</div><div class="s2tx">NSW 4 Pillars integration.</div></div>
+        <div class="s2c"><div class="s2n">5</div><div class="s2tx">Materiality assessment, Data collection, Automation.</div></div>
+        <div class="s2c"><div class="s2n">6</div><div class="s2tx">Processes in place to make it happen.</div></div>
+        <div class="s2c"><div class="s2n">7</div><div class="s2tx">Innovation, Tracking, Tools.</div></div>
+        <div class="s2c"><div class="s2n">8</div><div class="s2tx">Strategy &amp; Governance.</div></div>
+        <div class="s2c"><div class="s2n">9</div><div class="s2tx">Student Activities.</div></div>
+        <div class="s2c"><div class="s2n">10</div><div class="s2tx">Internal and external stakeholder information management.</div></div>
+        <div class="s2c"><div class="s2n">11</div><div class="s2tx">What do I bring to the table.</div></div>
+      </div>
     </div>
   </div>
 </div>

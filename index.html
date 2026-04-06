@@ -92,7 +92,8 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .s4-arr{font-size:16px;color:rgba(255,255,255,.3);flex-shrink:0;}
 /* 4 PILLARS */
 .pg{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;padding:12px 0;}
-.pc{border-radius:8px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 12px rgba(0,0,0,.09);transition:transform .22s cubic-bezier(.22,.68,0,1.3),box-shadow .22s;}
+.pc{border-radius:8px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 12px rgba(0,0,0,.09);transition:transform .22s cubic-bezier(.22,.68,0,1.3),box-shadow .22s;animation:stepIn .5s ease both;}
+.pc:nth-child(1){animation-delay:.1s;}.pc:nth-child(2){animation-delay:.25s;}.pc:nth-child(3){animation-delay:.4s;}.pc:nth-child(4){animation-delay:.55s;}
 .pc:hover{transform:scale(1.045);box-shadow:0 8px 28px rgba(0,0,0,.18);z-index:2;position:relative;}
 .pc-h{padding:13px 10px;color:white;font-weight:700;text-align:center;font-size:12px;letter-spacing:.5px;text-transform:uppercase;}
 .pc-sub{font-size:11px;color:rgba(255,255,255,.75);margin-top:3px;font-weight:400;text-transform:none;}
@@ -105,13 +106,20 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .pc-rl{font-size:11px;font-weight:700;color:var(--green-dk);margin-bottom:3px;}
 .pc-rel p{font-size:11px;line-height:1.4;}
 /* VISUAL ROADMAP */
-.vrm{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;flex:1;}
-.vph{border-radius:8px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(0,0,0,.07);}
-.vph-h{padding:13px 14px;color:white;font-weight:700;font-size:13px;letter-spacing:.4px;}
-.vph-b{background:#f7f8fc;padding:14px;flex:1;font-size:12.5px;}
-.vck{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px;line-height:1.45;}
-.vck::before{content:'✓';color:var(--teal);font-weight:700;flex-shrink:0;}
-.vck.added{color:var(--green-dk);font-style:italic;}
+.vrm{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;flex:1;}
+.vph{border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 14px rgba(0,0,0,.1);cursor:default;transition:transform .22s cubic-bezier(.22,.68,0,1.3),box-shadow .22s;animation:stepIn .55s ease both;}
+.vph:hover{transform:scale(1.045);box-shadow:0 10px 32px rgba(0,0,0,.18);z-index:2;position:relative;}
+.vph:nth-child(1){animation-delay:.1s;}
+.vph:nth-child(2){animation-delay:.28s;}
+.vph:nth-child(3){animation-delay:.46s;}
+.vph-h{padding:20px 18px 14px;color:white;font-weight:700;font-size:14px;letter-spacing:.3px;flex:1;display:flex;flex-direction:column;justify-content:flex-end;}
+.vph-sub{font-size:11px;font-weight:400;opacity:.75;margin-top:4px;}
+.vph-date{font-size:10.5px;font-weight:600;opacity:.65;margin-top:8px;letter-spacing:.4px;}
+/* TIMELINE */
+.tl{display:flex;align-items:center;padding:0 16px;gap:0;flex-shrink:0;margin-bottom:10px;}
+.tli{display:flex;flex-direction:column;align-items:center;}
+.tld{width:11px;height:11px;border-radius:50%;}
+.tll{font-size:10px;color:#888;margin-top:3px;}.vck.added{color:var(--green-dk);font-style:italic;}
 .vck.added::before{color:var(--green-dk);}
 /* TIMELINE */
 .tl{display:flex;align-items:flex-end;padding:8px 40px 0;gap:0;flex-shrink:0;}
@@ -499,52 +507,42 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 <div class="slide" id="s5" data-title="22-Month Roadmap Overview">
   <div class="sc">
     <div class="sh" style="background:var(--ph1);border-bottom-color:#5a9ae0;"><h1>22-Month Roadmap to Publication</h1><div class="sub">From Day 1 to published disclosure &mdash; practical, TPG24-33 aligned, project-managed</div></div>
-    <div class="ca">
-      <div class="vrm">
-        <div class="vph" style="border:2px solid var(--ph1);">
-          <div class="vph-h" style="background:var(--ph1);">Phase 1 &mdash; Data Foundation<br><span style="font-size:11px;font-weight:400;">JUL&#x2013;SEP 2025</span></div>
-          <div class="vph-b">
-            <div class="vck added">Stakeholder mapping &amp; engagement register</div>
-            <div class="vck added">Materiality assessment framework initiated</div>
-            <div class="vck">Register: Climate Risk Ready Hub, XDI NSW</div>
-            <div class="vck">Audit existing data (utility bills, fleet, solar)</div>
-            <div class="vck">Draft Governance section from existing committees</div>
-            <div class="vck">Begin TPG24-33 gap checklist</div>
+    <div class="ca" style="display:flex;flex-direction:column;gap:0;">
+      <div class="tl">
+        <div class="tli"><div class="tld" style="background:var(--ph1);"></div><div class="tll">Jul '25</div></div><div class="tln"></div>
+        <div class="tli"><div class="tld" style="background:var(--ph1);"></div><div class="tll">Sep '25</div></div><div class="tln"></div>
+        <div class="tli"><div class="tld" style="background:var(--ph2);"></div><div class="tll">Oct '25</div></div><div class="tln"></div>
+        <div class="tli"><div class="tld" style="background:var(--ph2);"></div><div class="tll">Dec '25</div></div><div class="tln"></div>
+        <div class="tli"><div class="tld" style="background:var(--ph3);"></div><div class="tll">Jan '26</div></div><div class="tln"></div>
+        <div class="tli"><div class="tld" style="background:var(--ph3);"></div><div class="tll">Apr '27</div></div>
+      </div>
+      <div class="vrm" style="flex:1;margin-top:14px;">
+        <div class="vph" style="background:var(--ph1);">
+          <div class="vph-h">
+            <div style="font-size:10px;font-weight:600;opacity:.6;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Phase 1</div>
+            <div style="font-size:20px;font-weight:800;line-height:1.2;">Data Foundation</div>
+            <div class="vph-sub">Baseline Defining &amp; Gap Analysis</div>
+            <div class="vph-date">JUL &ndash; SEP 2025</div>
           </div>
         </div>
-        <div class="vph" style="border:2px solid var(--ph2);">
-          <div class="vph-h" style="background:var(--ph2);">Phase 2 &mdash; Analysis &amp; Execution<br><span style="font-size:11px;font-weight:400;">OCT&#x2013;DEC 2025</span></div>
-          <div class="vph-b">
-            <div class="vck">NARCliM 2.0 campus risk profiles</div>
-            <div class="vck">Materiality assessment workshop</div>
-            <div class="vck added">SteerCo meeting series commenced</div>
-            <div class="vck added">Pilot week: data pipeline &amp; BMS testing</div>
-            <div class="vck added">Change management: staff briefings &amp; comms plan</div>
-            <div class="vck">Scope 1 data finalised</div>
+        <div class="vph" style="background:var(--ph2);">
+          <div class="vph-h">
+            <div style="font-size:10px;font-weight:600;opacity:.6;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Phase 2</div>
+            <div style="font-size:20px;font-weight:800;line-height:1.2;">Project Execution &amp; Innovation</div>
+            <div class="vph-sub">Tools, Pilots &amp; Data Pipeline</div>
+            <div class="vph-date">OCT &ndash; DEC 2025</div>
           </div>
         </div>
-        <div class="vph" style="border:2px solid var(--ph3);">
-          <div class="vph-h" style="background:var(--ph3);">Phase 3 &mdash; Drafting &amp; Publication<br><span style="font-size:11px;font-weight:400;">JAN 2026&#x2013;APR 2027</span></div>
-          <div class="vph-b">
-            <div class="vck">Scope 2 LGC records confirmed</div>
-            <div class="vck">Scope 3 preliminary screening</div>
-            <div class="vck">Draft Metrics &amp; Targets section</div>
-            <div class="vck">Complete full report draft</div>
-            <div class="vck">Executive review + Council endorsement</div>
-            <div class="vck">Publication</div>
+        <div class="vph" style="background:var(--ph3);">
+          <div class="vph-h">
+            <div style="font-size:10px;font-weight:600;opacity:.6;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Phase 3</div>
+            <div style="font-size:20px;font-weight:800;line-height:1.2;">Stakeholder, Change &amp; Drafting</div>
+            <div class="vph-sub">Change Management &amp; Report Publication</div>
+            <div class="vph-date">JAN 2026 &ndash; APR 2027</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="tl">
-      <div class="tli"><div class="tld" style="background:var(--ph1);"></div><div class="tll">Jul</div></div><div class="tln"></div>
-      <div class="tli"><div class="tld" style="background:var(--ph1);"></div><div class="tll">Sep</div></div><div class="tln"></div>
-      <div class="tli"><div class="tld" style="background:var(--ph2);"></div><div class="tll">Oct</div></div><div class="tln"></div>
-      <div class="tli"><div class="tld" style="background:var(--ph2);"></div><div class="tll">Dec</div></div><div class="tln"></div>
-      <div class="tli"><div class="tld" style="background:var(--ph3);"></div><div class="tll">Jan&#x2019;26</div></div><div class="tln"></div>
-      <div class="tli"><div class="tld" style="background:var(--ph3);"></div><div class="tll">Apr&#x2019;27</div></div>
-    </div>
-    <div style="padding:4px 40px 8px;font-size:11px;color:#888;font-style:italic;">&#x2714; Italic green items added to fill identified gaps per roadmap detail tables.</div>
   </div>
 </div>
 

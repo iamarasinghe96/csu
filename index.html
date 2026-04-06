@@ -780,23 +780,35 @@ function leverStep(){
   } else { resetLevers(); }
 }
 
-/* ART BACKGROUND — dense CSU-style concentric circles injected into each slide */
+/* ART BACKGROUND — CSU-style pattern: circles + morphing cushion shape */
 function injectArt(){
-  var ac='#5b6bb5',sw=8,step=11,rings='',r,hs;
-  /* Group 1: circles, center (100,90) */
-  for(r=5;r<=93;r+=step)
-    rings+='<circle cx="100" cy="90" r="'+r+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
-  /* Group 2: outer circles + inner diamonds, center (100,310) */
-  for(r=62;r<=93;r+=step)
-    rings+='<circle cx="100" cy="310" r="'+r+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
-  for(r=5;r<=51;r+=step){
-    hs=Math.round(r*0.72);
-    rings+='<rect x="'+(100-hs)+'" y="'+(310-hs)+'" width="'+(2*hs)+'" height="'+(2*hs)+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'" transform="rotate(45 100 310)"/>';
+  var ac='#5b6bb5', sw=6, step=12, maxR=108, shapes='', r, b, cx, cy, d;
+
+  function circleGroup(cx, cy){
+    for(r=6; r<=maxR; r+=step)
+      shapes+='<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
   }
-  /* Group 3: circles, center (100,530) */
-  for(r=5;r<=93;r+=step)
-    rings+='<circle cx="100" cy="530" r="'+r+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
-  var svgMk='<svg viewBox="0 0 200 620" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;">'+rings+'</svg>';
+
+  /* Cushion shape: b=0 at small r (pure diamond), b grows quadratically → convex sides.
+     Path: M top C(+b,-r)(+r,-b) right C(+r,+b)(+b,+r) bottom C(-b,+r)(-r,+b) left C(-r,-b)(-b,-r) top Z */
+  function cushionGroup(cx, cy){
+    for(r=6; r<=maxR; r+=step){
+      b = Math.round(0.38 * r * r / maxR * 10) / 10; /* 0 at small r, ~0.38*maxR at large r */
+      d = 'M '+cx+' '+(cy-r)
+        +' C '+(cx+b)+' '+(cy-r)+' '+(cx+r)+' '+(cy-b)+' '+(cx+r)+' '+cy
+        +' C '+(cx+r)+' '+(cy+b)+' '+(cx+b)+' '+(cy+r)+' '+cx+' '+(cy+r)
+        +' C '+(cx-b)+' '+(cy+r)+' '+(cx-r)+' '+(cy+b)+' '+(cx-r)+' '+cy
+        +' C '+(cx-r)+' '+(cy-b)+' '+(cx-b)+' '+(cy-r)+' '+cx+' '+(cy-r)+' Z';
+      shapes+='<path d="'+d+'" fill="none" stroke="'+ac+'" stroke-width="'+sw+'"/>';
+    }
+  }
+
+  /* Three groups: circles top, cushion middle, circles bottom — overlapping */
+  circleGroup(100, 85);
+  cushionGroup(100, 275);
+  circleGroup(100, 465);
+
+  var svgMk='<svg viewBox="0 0 200 560" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;">'+shapes+'</svg>';
   document.querySelectorAll('.slide').forEach(function(slide){
     var d=document.createElement('div');
     d.className='art-bg';

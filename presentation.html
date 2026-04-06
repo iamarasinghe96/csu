@@ -219,6 +219,29 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .s1name span{display:block;font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px;}
 #s1 .art-bg{left:44%;right:0;width:56%;opacity:.55;}
 #s1 .art-bg svg{transform:scale(1.9);transform-origin:center center;}
+/* THANK YOU SLIDE */
+#s19{background:linear-gradient(145deg,#0d1220 0%,#1a2340 55%,#0d1830 100%);}
+.s19w{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 60px;gap:28px;position:relative;z-index:1;}
+.s19ty{font-size:64px;font-weight:300;color:white;letter-spacing:2px;opacity:0;}
+.s19ty span{font-weight:800;color:var(--orange);}
+#s19.active .s19ty{animation:s19Fade .7s ease .1s forwards;}
+.s19qw{display:flex;align-items:flex-start;gap:10px;max-width:700px;opacity:0;}
+#s19.active .s19qw{animation:s19Fade .6s ease .6s forwards;}
+.s19qm{font-size:72px;line-height:1;color:rgba(255,255,255,.15);font-family:Georgia,serif;flex-shrink:0;margin-top:-14px;}
+.s19qm2{align-self:flex-end;margin-bottom:-14px;margin-top:0;}
+.s19q{display:flex;flex-direction:column;gap:2px;}
+.s19ql{font-size:22px;font-weight:300;color:rgba(255,255,255,.9);line-height:1.65;letter-spacing:.2px;opacity:0;}
+#s19.active .s19ql:nth-child(1){animation:s19Up .55s ease .9s forwards;}
+#s19.active .s19ql:nth-child(2){animation:s19Up .55s ease 1.3s forwards;}
+#s19.active .s19ql:nth-child(3){animation:s19Up .55s ease 1.7s forwards;}
+#s19.active .s19ql:nth-child(4){animation:s19Up .55s ease 2.1s forwards;}
+.s19attr{font-size:13px;color:rgba(255,255,255,.4);letter-spacing:.6px;text-align:center;opacity:0;}
+#s19.active .s19attr{animation:s19Fade .6s ease 2.8s forwards;}
+.s19name{font-size:13px;color:rgba(255,255,255,.25);letter-spacing:.5px;text-align:center;opacity:0;}
+#s19.active .s19name{animation:s19Fade .6s ease 3.2s forwards;}
+#s19 .art-bg{opacity:.06;}
+@keyframes s19Fade{from{opacity:0;}to{opacity:1;}}
+@keyframes s19Up{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
 /* PROTECTION OVERLAY */
 #po{position:fixed;inset:0;z-index:9990;pointer-events:none;background:repeating-linear-gradient(-55deg,transparent 0,transparent 150px,rgba(180,180,255,.012) 150px,rgba(180,180,255,.012) 151px);}
 </style>
@@ -227,7 +250,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 <div id="po"></div>
 <div id="nav">
   <button class="nb" id="bnm" onclick="openMenu()">&#9776;&thinsp;Menu</button>
-  <span id="sc">1&thinsp;/&thinsp;18</span>
+  <span id="sc">1&thinsp;/&thinsp;19</span>
   <button class="nb" id="bnb" onclick="go(-1)" disabled>&#8592; Back</button>
   <button class="nb" id="bnn" onclick="go(1)">Next &#8594;</button>
 </div>
@@ -953,6 +976,26 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
   </div>
 </div>
 
+
+<!-- S19: THANK YOU -->
+<div class="slide" id="s19" data-title="Thank You">
+  <div class="s19w">
+    <div class="s19ty">Thank <span>You</span></div>
+    <div class="s19qw">
+      <div class="s19qm">&#x201C;</div>
+      <div class="s19q">
+        <div class="s19ql">We are all visitors to this time, this place.</div>
+        <div class="s19ql">We are just passing through.</div>
+        <div class="s19ql">Our purpose here is to observe, to learn,</div>
+        <div class="s19ql">to grow, to love, and then we return home.</div>
+      </div>
+      <div class="s19qm s19qm2">&#x201D;</div>
+    </div>
+    <div class="s19attr">Australian Aboriginal proverb &nbsp;&bull;&nbsp; Spoken by Queen Elizabeth II, 2011</div>
+    <div class="s19name">Indika Amarasinghe &nbsp;&bull;&nbsp; Charles Sturt University &nbsp;&bull;&nbsp; 2026</div>
+  </div>
+</div>
+
 </div><!-- /pres -->
 
 <script>
@@ -1048,7 +1091,7 @@ function goTo(idx){
 function updNav(){
   document.getElementById('bnb').disabled=(cur===0);
   document.getElementById('bnn').disabled=(cur===slides.length-1);
-  document.getElementById('sc').textContent=(cur+1)+'\u2009/\u200918';
+  document.getElementById('sc').textContent=(cur+1)+'\u2009/\u2009'+slides.length;
 }
 
 /* MENU */

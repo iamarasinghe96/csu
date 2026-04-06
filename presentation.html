@@ -139,25 +139,15 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .tll{font-size:12px;color:#888;margin-top:3px;}
 .tln{flex:1;height:2px;background:#dde;margin-bottom:5px;}
 /* STRUCTURE LIST (S2) */
-.s2wrap{flex:1;display:flex;flex-direction:column;align-items:center;padding:10px 60px 14px;min-height:0;}
-.s2g{display:flex;flex-direction:column;justify-content:space-between;flex:1;width:100%;max-width:700px;min-height:0;}
+.s2wrap{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 60px 10px;min-height:0;overflow-y:auto;}
+.s2wrap::-webkit-scrollbar{width:4px;}.s2wrap::-webkit-scrollbar-thumb{background:#dde;border-radius:2px;}
+.s2g{display:flex;flex-direction:column;gap:5px;width:100%;max-width:700px;}
 .s2c{display:flex;align-items:center;gap:14px;padding:7px 16px;background:#f7f9fc;border-radius:9px;border-left:4px solid var(--art-blue);transition:background .18s,transform .18s;opacity:0;animation:s2In .45s ease forwards;cursor:pointer;pointer-events:all;}
 .s2c:hover{background:#eef2ff;transform:translateX(5px);}
 .s2c:hover .s2n{background:var(--orange);}
 .s2n{min-width:28px;height:28px;border-radius:50%;background:var(--navy);color:white;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .s2tx{font-size:14px;color:var(--text-dk);line-height:1.4;font-weight:500;}
 @keyframes s2In{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
-.s2c:nth-child(1){animation-delay:.05s;border-left-color:#e8603a;}
-.s2c:nth-child(2){animation-delay:.10s;}
-.s2c:nth-child(3){animation-delay:.15s;}
-.s2c:nth-child(4){animation-delay:.20s;}
-.s2c:nth-child(5){animation-delay:.25s;}
-.s2c:nth-child(6){animation-delay:.30s;}
-.s2c:nth-child(7){animation-delay:.35s;}
-.s2c:nth-child(8){animation-delay:.40s;}
-.s2c:nth-child(9){animation-delay:.45s;}
-.s2c:nth-child(10){animation-delay:.50s;}
-.s2c:nth-child(11){animation-delay:.55s;}
 #s2 .s2c{animation-play-state:paused;}
 #s2.active .s2c{animation-play-state:running;}
 /* LEVERS */
@@ -264,21 +254,9 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 <!-- S2: STRUCTURE -->
 <div class="slide" id="s2" data-title="Presentation Structure">
   <div class="sc">
-    <div class="sh"><h1>Presentation Structure</h1><div class="sub">What this presentation covers - end to end</div></div>
+    <div class="sh"><h1>Presentation Structure</h1><div class="sub">Click any section to jump directly to that slide</div></div>
     <div class="s2wrap">
-      <div class="s2g">
-        <div class="s2c" onclick="goTo(2)"><div class="s2n" style="background:#e8603a;">1</div><div class="s2tx">April 16 2027 - The day of report publish.</div></div>
-        <div class="s2c" onclick="goTo(2)"><div class="s2n">2</div><div class="s2tx">Walkthrough of the CSU Climate Outlook 2026.</div></div>
-        <div class="s2c" onclick="goTo(4)"><div class="s2n">3</div><div class="s2tx">Backtrack the progress and initiatives.</div></div>
-        <div class="s2c" onclick="goTo(3)"><div class="s2n">4</div><div class="s2tx">NSW 4 Pillars integration.</div></div>
-        <div class="s2c" onclick="goTo(8)"><div class="s2n">5</div><div class="s2tx">Materiality assessment, Data collection, Automation.</div></div>
-        <div class="s2c" onclick="goTo(5)"><div class="s2n">6</div><div class="s2tx">Processes in place to make it happen.</div></div>
-        <div class="s2c" onclick="goTo(10)"><div class="s2n">7</div><div class="s2tx">Innovation, Tracking, Tools.</div></div>
-        <div class="s2c" onclick="goTo(3)"><div class="s2n">8</div><div class="s2tx">Strategy &amp; Governance.</div></div>
-        <div class="s2c" onclick="goTo(11)"><div class="s2n">9</div><div class="s2tx">Student Activities.</div></div>
-        <div class="s2c" onclick="goTo(7)"><div class="s2n">10</div><div class="s2tx">Internal and external stakeholder information management.</div></div>
-        <div class="s2c" onclick="goTo(17)"><div class="s2n">11</div><div class="s2tx">What do I bring to the table.</div></div>
-      </div>
+      <div class="s2g" id="s2g"></div>
     </div>
   </div>
 </div>
@@ -1098,6 +1076,27 @@ function buildMenu(){
   });
 }
 
+function buildStructure(){
+  var g=document.getElementById('s2g');
+  if(!g)return;
+  slides.forEach(function(s,i){
+    var card=document.createElement('div');
+    card.className='s2c';
+    card.style.animationDelay=(i*0.04+0.04)+'s';
+    var num=document.createElement('div');
+    num.className='s2n';
+    if(i===0)num.style.background='#e8603a';
+    num.textContent=i+1;
+    var tx=document.createElement('div');
+    tx.className='s2tx';
+    tx.textContent=s.dataset.title||'Slide '+(i+1);
+    card.appendChild(num);
+    card.appendChild(tx);
+    card.addEventListener('click',function(){goTo(i);});
+    g.appendChild(card);
+  });
+}
+
 /* MOCK DOWNLOAD */
 function mockDownload(){
   window.open('CSU_Climate_Outlook_2026.pdf','_blank');
@@ -1235,6 +1234,7 @@ function initWordClouds(){
 /* INIT */
 updNav();
 buildMenu();
+buildStructure();
 injectArt();
 setTimeout(initWordClouds,120);
 </script>

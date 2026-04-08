@@ -28,7 +28,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 .art-bg svg{width:100%;height:100%;}
 #s3 .art-bg{opacity:.04;}
 /* NAV PILL - bottom-right */
-#nav{position:fixed;bottom:18px;right:20px;z-index:800;display:flex;align-items:center;gap:0;background:rgba(20,28,55,.92);backdrop-filter:blur(14px);border-radius:50px;padding:4px;box-shadow:0 4px 28px rgba(0,0,0,.5);}
+#nav{display:none!important;position:fixed;bottom:18px;right:20px;z-index:800;display:flex;align-items:center;gap:0;background:rgba(20,28,55,.92);backdrop-filter:blur(14px);border-radius:50px;padding:4px;box-shadow:0 4px 28px rgba(0,0,0,.5);}
 .nb{padding:7px 16px;background:transparent;color:rgba(255,255,255,.88);border:none;border-radius:40px;font-size:12px;font-weight:600;cursor:pointer;pointer-events:all;letter-spacing:.3px;transition:background .18s;white-space:nowrap;}
 .nb:hover:not(:disabled){background:rgba(255,255,255,.13);}
 .nb:disabled{opacity:.28;cursor:default;}
@@ -264,7 +264,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 <div id="pres">
 
 <!-- S1: TITLE -->
-<div class="slide active" id="s1" data-title="Title: Energy &amp; Climate Adaptation Plan">
+<div class="slide" id="s1" data-title="Title: Energy &amp; Climate Adaptation Plan">
   <div class="s1l">
     <div class="s1ey">Charles Sturt University &bull; 2026-2027</div>
     <div class="s1t">Energy &amp; <strong>Climate</strong><br>Adaptation Plan</div>
@@ -990,7 +990,7 @@ body{font-family:'Segoe UI',Calibri,'Helvetica Neue',Arial,sans-serif;background
 
 
 <!-- S19: THANK YOU -->
-<div class="slide" id="s19" data-title="Thank You">
+<div class="slide active" id="s19" data-title="Thank You">
   <div class="s19w">
     <div class="s19ty">Thank <span>You</span></div>
     <div class="s19qw">
@@ -1024,13 +1024,12 @@ document.addEventListener('keydown',function(e){
   }
   if(['f12','f11','f10','f5'].includes(k)){e.preventDefault();return;}
   if(e.key==='PrintScreen'){e.preventDefault();try{navigator.clipboard.writeText('').catch(function(){});}catch(er){}}
-  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();go(1);}
-  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();go(-1);}
+  /* navigation locked */
 });
 
 /* SLIDE SYSTEM */
 var slides=Array.from(document.querySelectorAll('.slide'));
-var cur=0;
+var cur=18;
 
 /* CALENDAR ANIMATION for S3 */
 var calAnimTimer=null;
